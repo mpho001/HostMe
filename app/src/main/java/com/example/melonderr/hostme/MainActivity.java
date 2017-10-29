@@ -14,10 +14,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button b1 = findViewById(R.id.submit_button);
         b1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if( ed1.getText().toString().equals("admin") &&
-                        ed2.getText().toString().equals("admin")) {
-                }else{
+            public void onClick(View v)
+            {
+                if( email.getText().toString().equals("admin") &&
+                        password.getText().toString().equals("admin")) {
+
+                }
+                else{
                     tx1.setVisibility(View.VISIBLE);
                     tx1.setBackgroundColor(Color.RED);
                     counter--;

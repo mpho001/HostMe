@@ -27,15 +27,16 @@
         tools:layout_editor_absoluteY="288dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
+
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="362dp" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
