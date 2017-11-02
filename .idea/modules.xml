@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HostMe.iml" filepath="$PROJECT_DIR$/HostMe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HostMe.iml" filepath="$PROJECT_DIR$/.idea/HostMe.iml" />
+      <module fileurl="file://C:\Users\Judy Lee\Documents\GitHub\HostMe\HostMe\HostMe.iml" filepath="C:\Users\Judy Lee\Documents\GitHub\HostMe\HostMe\HostMe.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
