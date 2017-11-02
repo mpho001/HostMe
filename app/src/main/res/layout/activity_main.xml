@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="51dp"
         android:ems="10"
-        android:hint="email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="84dp"
         tools:layout_editor_absoluteY="182dp" />
@@ -27,7 +27,7 @@
         android:layout_alignStart="@+id/email"
         android:layout_marginBottom="48dp"
         android:ems="10"
-        android:hint="password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="288dp" />
@@ -39,7 +39,7 @@
 
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
-        android:text="Submit"
+        android:text="@string/submit"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="362dp" />
 
@@ -50,7 +50,7 @@
         android:layout_above="@+id/email"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:text="Welcome to HostMe!"
+        android:text="@string/welcome_to_hostme"
         android:textColor="#7d7dbd"
         android:textSize="32sp" />
 
@@ -61,6 +61,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/submit_button"
         android:layout_marginBottom="73dp"
-        android:text="Register" />
+        android:text="@string/register" />
 
 </RelativeLayout>
