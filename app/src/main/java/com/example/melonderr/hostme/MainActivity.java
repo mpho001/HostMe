@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button b1 = findViewById(R.id.submit_button);
-        Button b2 = findViewById(R.id.register_button);
+        //Button b2 = findViewById(R.id.register_button);
 
         b1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
