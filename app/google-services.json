@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "549868407518",
+    "project_id": "firebase-hostme"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549868407518:android:fd7c3c53593ba5e4",
+        "android_client_info": {
+          "package_name": "com.example.melonderr.hostme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549868407518-hgcmahjeqhp3la7q8c9is0dv30j60hrb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.melonderr.hostme",
+            "certificate_hash": "0e5ae85a3d3be116d0ec13f398c43718d5f4bbcd"
+          }
+        },
+        {
+          "client_id": "549868407518-phuq1evcbm23s7our3bv88ej86aiktol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrRfyJdZLDhXlpEex7C-oqEyFWOjbp9qw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
