@@ -1,5 +1,6 @@
 package com.example.melonderr.hostme;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -44,10 +45,23 @@ public class MainActivity extends AppCompatActivity {
               }
           });
 
-        b2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+//        b2.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                registerPage(v);
+//            }
+//        });
 
-            }
-        });
+
     }
+
+    // Called when user clicks register button
+    public void registerPage(View view) {
+        Toast.makeText(getApplicationContext(),
+                "Register!", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, Registration.class);
+        startActivity(intent);
+    }
+
+
 }
