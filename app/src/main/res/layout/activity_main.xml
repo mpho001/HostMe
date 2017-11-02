@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/register_button"
         android:layout_centerHorizontal="true"
         android:text="@string/submit"
         tools:layout_editor_absoluteX="148dp"
@@ -55,7 +55,7 @@
         android:textSize="32sp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
