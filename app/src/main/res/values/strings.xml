@@ -6,4 +6,8 @@
     <string name="welcome_to_hostme">Welcome to HostMe!</string>
     <string name="register">Register</string>
     <string name="title_activity_registration">Registration</string>
+    <string name="firstname">FirstName</string>
+    <string name="lastname">LastName</string>
+    <string name="number">Number</string>
+    <string name="address">Address</string>
 </resources>

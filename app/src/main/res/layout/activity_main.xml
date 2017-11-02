@@ -61,6 +61,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/submit_button"
         android:layout_marginBottom="73dp"
+        android:onClick="registerPage"
         android:text="@string/register" />
 
 </RelativeLayout>
