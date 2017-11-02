@@ -11,11 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/password"
-        android:layout_alignStart="@+id/password"
-        android:layout_marginBottom="36dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="51dp"
         android:ems="10"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:text="email"
         tools:layout_editor_absoluteX="84dp"
         tools:layout_editor_absoluteY="182dp" />
 
@@ -24,12 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/submit_button"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="36dp"
-        android:layout_marginStart="68dp"
+        android:layout_alignStart="@+id/email"
+        android:layout_marginBottom="48dp"
         android:ems="10"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        android:text="password"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="288dp" />
 
@@ -38,25 +37,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignEnd="@+id/password"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="93dp"
-        android:layout_marginEnd="59dp"
-        android:text="Submit"
+        android:layout_above="@+id/register_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/submit"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="362dp" />
 
-    <EditText
-        android:id="@+id/Title"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/email"
-        android:layout_alignStart="@+id/email"
-        android:layout_marginBottom="42dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Welcome to HostMe"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="67dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="@string/welcome_to_hostme"
+        android:textColor="#7d7dbd"
+        android:textSize="32sp" />
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/submit_button"
+        android:layout_marginBottom="73dp"
+        android:onClick="registerPage"
+        android:text="@string/register" />
 
 </RelativeLayout>
