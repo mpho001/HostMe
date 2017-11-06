@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button b1 = findViewById(R.id.submit_button);
+        // Button b1 = findViewById(R.id.submit_button);
 
 //        Button b = findViewById(R.id.google_sign_in);
 //        b.setOnClickListener(new View.OnClickListener() {
@@ -41,38 +41,53 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
 
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText e1 = findViewById(R.id.email);
-                EditText e2 = findViewById(R.id.password);
-                if (e1.getText().toString().equals("admin") &&
-                          e2.getText().toString().equals("admin"))
-                {
-                      Toast.makeText(getApplicationContext(),
-                              "Success!", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),
-                              "Failure!", Toast.LENGTH_SHORT).show();
-                }
-    //                else{
-    //                    tx1.setVisibility(View.VISIBLE);
-    //                    tx1.setBackgroundColor(Color.RED);
-    //                    counter--;
-    //                    tx1.setText(Integer.toString(counter));
-    //
-    //                    if (counter == 0) {
-    //                        b1.setEnabled(false);
-    //                    }
-    //                }
-              }
-          });
+//        b1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                EditText e1 = findViewById(R.id.email);
+//                EditText e2 = findViewById(R.id.password);
+//                if (e1.getText().toString().equals("admin") &&
+//                          e2.getText().toString().equals("admin"))
+//                {
+//                      Toast.makeText(getApplicationContext(),
+//                              "Success!", Toast.LENGTH_SHORT).show();
+//                }
+//                else {
+//                    Toast.makeText(getApplicationContext(),
+//                              "Failure!", Toast.LENGTH_SHORT).show();
+//                }
+//    //                else{
+//    //                    tx1.setVisibility(View.VISIBLE);
+//    //                    tx1.setBackgroundColor(Color.RED);
+//    //                    counter--;
+//    //                    tx1.setText(Integer.toString(counter));
+//    //
+//    //                    if (counter == 0) {
+//    //                        b1.setEnabled(false);
+//    //                    }
+//    //                }
+//              }
+//          });
 
     }
 
 
-
+    public void userPage(View view) {
+        EditText e1 = findViewById(R.id.email);
+        EditText e2 = findViewById(R.id.password);
+        if (e1.getText().toString().equals("admin") &&
+                e2.getText().toString().equals("admin"))
+        {
+            Toast.makeText(getApplicationContext(),
+                    "Success!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, User_Main_Page.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(getApplicationContext(),
+                    "Failure!", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     // Called when user clicks register button
     public void registerPage(View view) {

@@ -39,6 +39,7 @@
 
         android:layout_above="@+id/register_button"
         android:layout_centerHorizontal="true"
+        android:onClick="userPage"
         android:text="@string/submit"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="362dp" />
