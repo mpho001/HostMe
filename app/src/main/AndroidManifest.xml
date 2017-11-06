@@ -20,8 +20,7 @@
             android:name=".Registration"
             android:label="@string/title_activity_registration"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RestuarantMainPage" />
-        <activity android:name=".Messaging"></activity>
+        <activity android:name=".RestuarantMainPage"></activity>
     </application>
 
 </manifest>
