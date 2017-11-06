@@ -21,7 +21,11 @@
             android:label="@string/title_activity_registration"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RestuarantMainPage" />
-        <activity android:name=".Messaging"></activity>
+        <activity android:name=".Messaging" />
+        <activity
+            android:name=".GoogleSignIn"
+            android:label="@string/title_activity_google_sign_in"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
