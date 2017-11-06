@@ -132,6 +132,4 @@ public class GoogleSignIn extends AppCompatActivity implements
 
     }
 
-
-
 }
