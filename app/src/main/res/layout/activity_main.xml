@@ -82,4 +82,14 @@
         android:onClick="toGoogleSignIn"
         android:text="Google" />
 
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/sign_in_button"
+        android:layout_below="@+id/sign_in_button"
+        android:layout_marginTop="16dp"
+        android:onClick="searchPage"
+        android:text="SearchTest" />
+
 </RelativeLayout>
