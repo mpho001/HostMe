@@ -18,7 +18,7 @@ public class GoogleSignIn extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        Button google = findViewById(R.id.sign_in_button);
+        // Button google = findViewById(R.id.sign_in_button);
 //        google.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
