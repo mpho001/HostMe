@@ -85,7 +85,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void searchPage(View view) {
         Toast.makeText(getApplicationContext(),
+<<<<<<< HEAD
                 "Search!", Toast.LENGTH_SHORT).show();
+=======
+                "Search Page!", Toast.LENGTH_SHORT).show();
+>>>>>>> 5e9796b1243420165c6581b3fd2b9a233dc5142a
 
         Intent intent = new Intent(this, Restaurant_Search.class);
         startActivity(intent);
