@@ -34,14 +34,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RestuarantMainPage" />
         <activity android:name=".Messaging" />
-<<<<<<< HEAD
         <activity
             android:name=".GoogleSignIn"
             android:label="@string/title_activity_google_sign_in"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-=======
         <activity android:name=".Restaurant_Search"></activity>
->>>>>>> 525d2a3a72e80ecc15726a2dc40f1ad69a11e4eb
     </application>
 
 </manifest>
