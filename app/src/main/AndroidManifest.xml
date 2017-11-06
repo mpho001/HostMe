@@ -36,6 +36,13 @@
             android:label="@string/title_activity_google_sign_in"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Restaurant_Search" />
+
+        <activity
+            android:name=".User_Main_Page"
+            android:label="@string/title_activity_user_main_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
     </application>
 
 </manifest>
