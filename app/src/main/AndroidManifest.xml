@@ -32,13 +32,16 @@
             android:name=".Registration"
             android:label="@string/title_activity_registration"
             android:theme="@style/AppTheme.NoActionBar" />
-<<<<<<< HEAD
-        <activity android:name=".RestuarantMainPage"></activity>
-=======
         <activity android:name=".RestuarantMainPage" />
         <activity android:name=".Messaging" />
+<<<<<<< HEAD
+        <activity
+            android:name=".GoogleSignIn"
+            android:label="@string/title_activity_google_sign_in"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+=======
         <activity android:name=".Restaurant_Search"></activity>
->>>>>>> 27a8b3af5288d5c5dde48f86fd86a367ceed493f
+>>>>>>> 525d2a3a72e80ecc15726a2dc40f1ad69a11e4eb
     </application>
 
 </manifest>

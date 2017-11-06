@@ -73,4 +73,13 @@
         android:layout_marginTop="21dp"
         android:layout_toStartOf="@+id/submit_button" />
 
+    <Button
+        android:id="@+id/google_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_alignTop="@+id/sign_in_button"
+        android:onClick="toGoogleSignIn"
+        android:text="Google" />
+
 </RelativeLayout>
