@@ -83,6 +83,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void searchPage(View view) {
+        Toast.makeText(getApplicationContext(),
+                "Register!", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, Restaurant_Search.class);
+        startActivity(intent);
+    }
+
 
     public void toGoogleSignIn(View view) {
         Toast.makeText(getApplicationContext(),
