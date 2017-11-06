@@ -18,6 +18,8 @@ public class GoogleSignIn extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // findViewById(R.id.sign_in_button).setOnClickListener(this);
+
         // Button google = findViewById(R.id.sign_in_button);
 //        google.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -35,6 +37,8 @@ public class GoogleSignIn extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        // public void onClick(View v)
     }
 
 }
