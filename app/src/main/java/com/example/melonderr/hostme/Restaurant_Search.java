@@ -22,8 +22,6 @@ public class Restaurant_Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant__search);
 
-        EditText search_entry = findViewById(R.id.search);
-
         try {
             PlacePicker.IntentBuilder intentBuilder = new PlacePicker.IntentBuilder();
             startActivityForResult(intentBuilder.build(this), PLACE_PICKER_REQUEST);
