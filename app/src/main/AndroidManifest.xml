@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.melonderr.hostme">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.vision"
+            android:value="@integer/google_play_services_version"></meta-data>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/places_api"></meta-data>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +30,12 @@
             android:label="@string/title_activity_registration"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RestuarantMainPage" />
-        <activity android:name=".Messaging"></activity>
+        <activity android:name=".Messaging" />
+        <activity
+            android:name=".GoogleSignIn"
+            android:label="@string/title_activity_google_sign_in"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Restaurant_Search" />
     </application>
 
 </manifest>
