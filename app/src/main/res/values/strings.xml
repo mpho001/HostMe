@@ -15,4 +15,7 @@
     <string name="places_api">502112469186-uohesj99i8cb6uva28bvo4mqbfe87luv.apps.googleusercontent.com</string>
     <string name="server_client_id">549868407518-hgcmahjeqhp3la7q8c9is0dv30j60hrb.apps.googleusercontent.com</string>
     <string name="search">search</string>
+    <string name="signed_in_fmt">Signed in as: %s</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="signed_out">You signed out</string>
 </resources>
