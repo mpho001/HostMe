@@ -163,9 +163,6 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     public void searchPage(View view) {
-        Toast.makeText(getApplicationContext(),
-                "Search!", Toast.LENGTH_SHORT).show();
-
         Intent intent = new Intent(this, Restaurant_Search.class);
         startActivity(intent);
     }
