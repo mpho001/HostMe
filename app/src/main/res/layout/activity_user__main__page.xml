@@ -14,7 +14,14 @@
         android:id="@+id/greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Host me " />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="cursive"
+        android:text="Welcome to Hostme \nuser"
+        android:textAlignment="center"
+        android:textColor="@color/common_plus_signin_btn_text_dark_focused"
+        android:textSize="60sp" />
+    <!----> add user name greeting.
 
     <GridView
         android:id="@+id/grid"
