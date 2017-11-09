@@ -25,8 +25,9 @@ public class Restaurant_Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant__search);
 
+        PlacePicker.IntentBuilder intentBuilder = new PlacePicker.IntentBuilder();
         try {
-            PlacePicker.IntentBuilder intentBuilder = new PlacePicker.IntentBuilder();
+            final Intent intent = intentBuilder.build(this);
             startActivityForResult(intentBuilder.build(this), PLACE_PICKER_REQUEST);
         } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
             e.printStackTrace();
