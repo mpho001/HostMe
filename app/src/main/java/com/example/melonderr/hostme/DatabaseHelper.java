@@ -88,6 +88,63 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.insert("user_info", null,contentValues);
         return true;
     }
+    /*
+    This function will get an user information based on their id.
+     */
+    public Cursor getData(int id)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor res = sqLiteDatabase.rawQuery("select * from contacts where id="+id+"", null);
+        return res;
+    }
 
-//    sqLiteDatabase.update("user_info",  contentValues, "id=?", new String[] {Integer.toString(id)});
+    public int numberOfRows(){
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        int numRows = (int) DatabaseUtils.queryNumEntries(sqLiteDatabase, TABLE_NAME);
+        return numRows;
+    }
+    /*
+   this functions updates the existing contact information
+    Can be used for update account feature
+     */
+    public boolean updateContact ( Integer id, String FIRST_NAME, String LAST_NAME, String PHONE_NUMBER, String EMAIL, String PASSWORD, String OLD_PASSWORD, String REVIEWS, String MESSAGES
+            , String RESERVATIONS, String SECURITY_QUESTION_1, String SECURITY_ANSWER_1, String SECURITY_QUESTION_2, String SECURITY_ANSWER_2
+            , String SECURITY_QUESTION_3, String SECURITY_ANSWER_3){
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("FIRST_NAME", FIRST_NAME);
+        contentValues.put("LAST_NAME", LAST_NAME);
+        contentValues.put("PHONE_NUMBER", PHONE_NUMBER);
+        contentValues.put("EMAIL", EMAIL);
+        contentValues.put("PASSWORD",PASSWORD );
+        contentValues.put("OLD_PASSWORD",OLD_PASSWORD );
+        contentValues.put("REVIEWS",  REVIEWS );
+        contentValues.put("MESSAGES",MESSAGES );
+        contentValues.put("RESERVATIONS",RESERVATIONS );
+        contentValues.put("SECURITY_QUESTION_1",SECURITY_QUESTION_1 );
+        contentValues.put("SECURITY_ANSWER_1", SECURITY_ANSWER_1);
+        contentValues.put("SECURITY_QUESTION_2",SECURITY_QUESTION_2 );
+        contentValues.put("SECURITY_ANSWER_2",SECURITY_ANSWER_2 );
+        contentValues.put("SECURITY_QUESTION_3", SECURITY_QUESTION_3);
+        contentValues.put("SECURITY_ANSWER_3",SECURITY_ANSWER_3 );
+
+//        sqLiteDatabase.insert("user_info", null,contentValues);
+        sqLiteDatabase.update("user_info",  contentValues, "id=?", new String[] {Integer.toString(id)});
+        return true;
+    }
+
+
+    /*
+    deleteContact deletes existing contacts.
+    Can be used as delete feature
+     */
+    public Integer deleteContact (Integer id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        return sqLiteDatabase.delete("contacts",
+                "id = ? ",
+                new String[] { Integer.toString(id) });
+    }
+
+
 }
