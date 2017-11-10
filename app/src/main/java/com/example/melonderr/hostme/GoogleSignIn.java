@@ -62,7 +62,7 @@ public class GoogleSignIn extends AppCompatActivity implements
 //                        "Sign In", Toast.LENGTH_SHORT).show();
 //            }
 //        });
-
+    /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +71,7 @@ public class GoogleSignIn extends AppCompatActivity implements
                         .setAction("Action", null).show();
             }
         });
-
+    */
 
     }
 
