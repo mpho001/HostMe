@@ -146,5 +146,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
+    public ArrayList<String> getAllUserInfo() {
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor res =  sqLiteDatabase.rawQuery( "select * from user_info", null );
+        res.moveToFirst();
+
+        while(!res.isAfterLast()){
+            array_list.add(res.getString(res.getColumnIndex(Col_1)));
+            res.moveToNext();
+        }
+        return array_list;
+    }
+
 
 }
