@@ -95,7 +95,10 @@ public class MainActivity extends AppCompatActivity implements
             // Signed out, show unauthenticated UI.
             updateUI(false);
         }
-        Intent intent = new Intent(this, User_Main_Page.class);
+//        Intent intent = new Intent(this, User_Main_Page.class);
+//        startActivity(intent);
+
+        Intent intent = new Intent(this, Messaging.class);
         startActivity(intent);
     }
 
