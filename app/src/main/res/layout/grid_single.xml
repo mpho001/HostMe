@@ -24,6 +24,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:gravity="bottom|center"
-            android:textSize="20sp"></TextView>
+            android:textSize="15sp"></TextView>
     </FrameLayout>
 </RelativeLayout>

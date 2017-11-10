@@ -95,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements
             // Signed out, show unauthenticated UI.
             updateUI(false);
         }
-//        Intent intent = new Intent(this, User_Main_Page.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, User_Main_Page.class);
+        startActivity(intent);
     }
 
     private void updateUI(boolean signedIn) {
@@ -106,9 +106,11 @@ public class MainActivity extends AppCompatActivity implements
             findViewById(R.id.email).setVisibility(View.GONE);
             findViewById(R.id.password).setVisibility(View.GONE);
         } else {
-            mStatusTextView.setText(R.string.signed_out);
+            // mStatusTextView.setText(R.string.signed_out);
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+            findViewById(R.id.email).setVisibility(View.VISIBLE);
+            findViewById(R.id.password).setVisibility(View.VISIBLE);
         }
     }
 
@@ -123,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements
             case R.id.sign_out_button:
                 Toast.makeText(getApplicationContext(),
                         "Signing Out", Toast.LENGTH_SHORT).show();
-                // signOut();
+                signOut();
                 break;
         }
     }
