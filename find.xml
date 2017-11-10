@@ -1,7 +1,7 @@
 <application>
   <component name="FindSettings">
-    <option name="customScope" value="All Places" />
-    <option name="defaultScopeName" value="All Places" />
-    <option name="SEARCH_SCOPE" value="All Places" />
+    <option name="customScope" value="File '[app] - ...\app\src\main\java\com\example\melonderr\hostme\DatabaseHelper.java'" />
+    <option name="defaultScopeName" value="File '[app] - ...\app\src\main\java\com\example\melonderr\hostme\DatabaseHelper.java'" />
+    <option name="SEARCH_SCOPE" value="File '[app] - ...\app\src\main\java\com\example\melonderr\hostme\DatabaseHelper.java'" />
   </component>
 </application>
