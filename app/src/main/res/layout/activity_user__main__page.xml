@@ -1,33 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.melonderr.hostme.User_Main_Page">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+    tools:context="com.example.melonderr.hostme.User_Main_Page"
+    android:background ="@drawable/restaurant" >
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_user__main__page" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    <TextView
+        android:id="@+id/greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="cursive"
+        android:text="Welcome to Hostme \nuser"
+        android:textAlignment="center"
+        android:textColor="@color/common_plus_signin_btn_text_dark_focused"
+        android:textSize="60sp" />
+    <!----> add user name greeting.
 
-</android.support.design.widget.CoordinatorLayout>
+    <GridView
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnWidth="100dp"
+        android:numColumns="3"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:stretchMode="columnWidth">
+
+    </GridView>
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_marginTop="229dp"-->
+
+        <!--android:numColumns="auto_fit"-->
+
+
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+</RelativeLayout>
+
+<!--<bitmap xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:gravity="center"-->
+<!--android:src="@drawable/user_page_background" />-->
