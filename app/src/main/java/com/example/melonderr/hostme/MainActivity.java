@@ -167,6 +167,14 @@ public class MainActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
+//    //todo: erase after testing
+//    public void DBTestPage(View view) {
+//        Toast.makeText(getApplicationContext(),
+//                "Registered!", Toast.LENGTH_SHORT).show();
+//
+//        Intent intent = new Intent(this, test_display_user_info.class);
+//        startActivity(intent);
+//    }
     public void searchPage(View view) {
         Intent intent = new Intent(this, Restaurant_Search.class);
         startActivity(intent);
