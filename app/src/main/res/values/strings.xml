@@ -6,7 +6,7 @@
     <string name="welcome_to_hostme">Welcome to HostMe!</string>
     <string name="register">Register</string>
     <string name="title_activity_registration">Registration</string>
-    <string name ="title_activity_user_main_page">User_Main_Page</string>
+    <string name="title_activity_user_main_page">User_Main_Page</string>
     <string name="firstname">FirstName</string>
     <string name="lastname">LastName</string>
     <string name="number">Number</string>
@@ -18,4 +18,5 @@
     <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="sign_out">Sign Out</string>
     <string name="signed_out">You signed out</string>
+    <string name="title_activity_search">Map</string>
 </resources>
