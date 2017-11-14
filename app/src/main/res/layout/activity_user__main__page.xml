@@ -21,7 +21,7 @@
         android:textAlignment="center"
         android:textColor="@color/common_plus_signin_btn_text_dark_focused"
         android:textSize="60sp" />
-    <!----> add user name greeting.
+    <!--add user name greeting-->
 
     <GridView
         android:id="@+id/grid"
