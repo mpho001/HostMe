@@ -18,5 +18,22 @@
     <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="sign_out">Sign Out</string>
     <string name="signed_out">You signed out</string>
+<<<<<<< HEAD
     <string name="title_activity_search">Map</string>
+=======
+
+    //Fixme
+    <string name="edit">Edit Contact</string>
+    <string name="delete">Delete Contact</string>
+    <string name="Add_New">Add New</string>
+    <string name="yes">Yes</string>
+    <string name="deleteContact">Are you sure, you want to delete it.</string>
+    <string name="no">No</string>
+    <string name="title_activity_test_display_user_info">activity_test_display_user_info</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="street">Street</string>
+    <string name="country">City/State/Zip</string>
+    <string name="save">Save Contact</string>
+>>>>>>> 3813b143882c403be250da0ce1d34c0598381b14
 </resources>

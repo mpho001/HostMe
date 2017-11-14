@@ -27,10 +27,11 @@
         android:id="@+id/grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
         android:columnWidth="100dp"
-        android:numColumns="3"
         android:gravity="center"
-        android:layout_centerInParent="true"
+        android:numColumns="3"
         android:stretchMode="columnWidth">
 
     </GridView>

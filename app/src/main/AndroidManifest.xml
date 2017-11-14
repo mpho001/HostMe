@@ -55,9 +55,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity
             android:name=".Search"
             android:label="@string/title_activity_search"></activity>
+=======
+
+        <!--<activity-->
+            <!--android:name=".test_display_user_info"-->
+            <!--android:label="userinfos"-->
+            <!--android:theme="@style/AppTheme.NoActionBar">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!---->
+        <!--<activity-->
+            <!--android:name=".activity_test_display_user_info"-->
+            <!--android:label="@string/title_activity_test_display_user_info"-->
+            <!--android:theme="@style/AppTheme"></activity>-->
+>>>>>>> 3813b143882c403be250da0ce1d34c0598381b14
     </application>
 
 </manifest>
