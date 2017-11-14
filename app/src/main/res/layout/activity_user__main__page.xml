@@ -19,7 +19,6 @@
         android:fontFamily="cursive"
         android:text="Welcome to Hostme \nuser"
         android:textAlignment="center"
-        android:textColor="@color/common_plus_signin_btn_text_dark_focused"
         android:textSize="60sp" />
     <!--add user name greeting-->
 
