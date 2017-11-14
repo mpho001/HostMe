@@ -12,17 +12,12 @@
     <string name="number">Number</string>
     <string name="address">Address</string>
     <string name="title_activity_google_sign_in">GoogleSignIn</string>
-    <string name="places_api">502112469186-uohesj99i8cb6uva28bvo4mqbfe87luv.apps.googleusercontent.com</string>
+    <string name="places_api">AIzaSyD02zfklTnI-fiX5VTG6MnAHRpk27Evp4I</string>
     <string name="server_client_id">549868407518-hgcmahjeqhp3la7q8c9is0dv30j60hrb.apps.googleusercontent.com</string>
     <string name="search">search</string>
     <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="sign_out">Sign Out</string>
     <string name="signed_out">You signed out</string>
-<<<<<<< HEAD
-    <string name="title_activity_search">Map</string>
-=======
-
-    //Fixme
     <string name="edit">Edit Contact</string>
     <string name="delete">Delete Contact</string>
     <string name="Add_New">Add New</string>
@@ -35,5 +30,4 @@
     <string name="street">Street</string>
     <string name="country">City/State/Zip</string>
     <string name="save">Save Contact</string>
->>>>>>> 3813b143882c403be250da0ce1d34c0598381b14
 </resources>
