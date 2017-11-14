@@ -1,5 +1,6 @@
 package com.example.melonderr.hostme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -13,7 +14,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.os.Bundle;
-
 
 
 public class User_Main_Page extends Activity {
@@ -70,6 +70,11 @@ public class User_Main_Page extends Activity {
 
             }
         });
+    }
+
+    public void searchPage(View view) {
+        Intent intent = new Intent(this, Restaurant_Search.class);
+        startActivity(intent);
     }
 
 }
