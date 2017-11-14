@@ -175,10 +175,6 @@ public class MainActivity extends AppCompatActivity implements
 //        Intent intent = new Intent(this, test_display_user_info.class);
 //        startActivity(intent);
 //    }
-    public void searchPage(View view) {
-        Intent intent = new Intent(this, Restaurant_Search.class);
-        startActivity(intent);
-    }
 
 
     public void toGoogleSignIn(View view) {
