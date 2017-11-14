@@ -62,7 +62,8 @@
         <activity
             android:name=".my_account_info"
             android:label="@string/title_activity_my_account_info"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".changePassword"></activity>
     </application>
 
 </manifest>
