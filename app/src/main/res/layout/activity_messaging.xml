@@ -16,7 +16,7 @@
         android:layout_marginTop="105dp"
         android:ems="10"
         android:inputType="phone"
-        android:text="Phone Number" />
+        android:hint="Phone Number" />
 
     <EditText
         android:id="@+id/body"
@@ -27,7 +27,7 @@
         android:layout_marginTop="41dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Message" />
+        android:hint="Message" />
 
     <Button
         android:id="@+id/send"

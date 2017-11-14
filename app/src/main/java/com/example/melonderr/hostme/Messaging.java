@@ -37,6 +37,7 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
             case R.id.send:
                 String phNum = phNumTxt.getText().toString();
                 String msg   = msgTxt.getText().toString();
+                msgTxt.getText().clear();
                 Toast.makeText(getApplicationContext(),
                         "Pressed Send", Toast.LENGTH_SHORT).show();
                 sendMsg(phNum, msg);
