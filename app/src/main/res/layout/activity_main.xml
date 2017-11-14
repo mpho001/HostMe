@@ -121,13 +121,5 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/sign_in_button"
-        android:layout_alignStart="@+id/sign_in_button"
-        android:text="Button" />
-
 
 </RelativeLayout>
