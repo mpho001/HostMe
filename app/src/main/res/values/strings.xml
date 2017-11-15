@@ -30,4 +30,6 @@
     <string name="street">Street</string>
     <string name="country">City/State/Zip</string>
     <string name="save">Save Contact</string>
+    <string name="title_activity_my_account_info">my_account_info</string>
+    <string name="title_activity_reservation_record">ReservationRecord</string>
 </resources>
