@@ -72,6 +72,33 @@ public class User_Main_Page extends Activity {
         });
     }
 
+//    GridView grid;
+//    String[] web = {
+ //           "Search"
+//    } ;
+
+//    int[] imageId = {
+  //          R.drawable.places_ic_search
+  //  };
+    // @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_user__main__page);
+//
+//        CustomGrid adapter = new CustomGrid(User_Main_Page.this, web, imageId);
+//        grid = (GridView) findViewById(R.id.grid);
+//        grid.setAdapter(adapter);
+//        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view,
+ //                                   int position, long id) {
+ //               Toast.makeText(User_Main_Page.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+
+   //         }
+   //     });
+ //   }
+
     public void searchPage(View view) {
         Intent intent = new Intent(this, Restaurant_Search.class);
         startActivity(intent);
