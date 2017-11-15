@@ -34,8 +34,4 @@
         android:layout_below="@+id/button2"
         android:layout_marginTop="49dp"
         android:text="Past Reservation" />
-<<<<<<< HEAD
 </RelativeLayout>
-=======
-</RelativeLayout>
->>>>>>> a2902db551ee6d733ecb49194b926e211c2c20f3
