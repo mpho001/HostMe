@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -30,7 +29,8 @@ public class MainActivity extends AppCompatActivity implements
     private GoogleApiClient mGoogleApiClient;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "SignInActivity";
-    private TextView mStatusTextView;
+    // private TextView mStatusTextView;
+    String googleEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity implements
 
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
-
-
     }
 
     private void signIn() {
@@ -100,6 +98,17 @@ public class MainActivity extends AppCompatActivity implements
 
         Intent intent = new Intent(this, Messaging.class);
         startActivity(intent);
+
+        // trying to get user information
+        // GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        GoogleSignInAccount acct = result.getSignInAccount();
+        googleEmail = acct.getEmail();
+        Toast.makeText(getApplicationContext(),
+                googleEmail, Toast.LENGTH_SHORT).show();
+
+        // TODO
+        // if email doesn't exist in database, prompt user that account doesn't exist for app
+        // and also return to main page
     }
 
     private void updateUI(boolean signedIn) {

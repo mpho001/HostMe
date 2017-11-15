@@ -13,15 +13,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class Messaging extends AppCompatActivity implements View.OnClickListener{
-
+public class Messaging extends AppCompatActivity implements View.OnClickListener {
     EditText phNumTxt;
     EditText msgTxt;
     private static final int PERMISSION_REQUEST_CODE = 1;
     private static final int PERMISSION_REQUEST_CODE2 = 2;
 
+    IntentFilter intentFilter;
+
+    private BroadcastReceiver intentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            TextView inTxt = findViewById(R.id.displayMessage);
+            inTxt.setText(intent.getExtras().getString("sms"));
+        }
+    };
 
     // Button   sendBtn;
     // getApplicationContext() instead of this
@@ -33,6 +42,9 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messaging);
+
+        intentFilter = new IntentFilter();
+        intentFilter.addAction("SMS_RECEIVED_ACTION");
 
         phNumTxt = (findViewById(R.id.phoneNumber));
         msgTxt = findViewById(R.id.body);
@@ -136,6 +148,10 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
         }
     }
 
+    public void set() {
+
+    }
+
     protected void sendMsg(String num, String msg) {
         String SENT = "Message Sent";
         String DELIVERED = "Message Delivered";
@@ -183,4 +199,17 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(num, null, msg, sentPI, deliveredPI);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(intentReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(intentReceiver);
+    }
+
 }
