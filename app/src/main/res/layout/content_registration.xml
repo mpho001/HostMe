@@ -11,115 +11,141 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="52dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/FirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="71dp"
+                android:layout_marginTop="50dp"
                 android:ems="10"
                 android:hint="@string/firstname"
                 android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="25dp"
                 tools:layout_editor_absoluteY="88dp" />
-
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_alignParentTop="true" -->
             <EditText
                 android:id="@+id/LastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/FirstName"
+
+
                 android:layout_marginTop="38dp"
                 android:ems="10"
                 android:hint="@string/lastname"
                 android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="25dp"
                 tools:layout_editor_absoluteY="88dp" />
-
+            <!--android:layout_alignParentStart="true"
+            android:layout_below="@+id/FirstName"-->
             <EditText
                 android:id="@+id/PhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/email_address"
+
+
                 android:layout_marginTop="43dp"
                 android:ems="10"
                 android:hint="@string/number"
                 android:inputType="phone"
                 tools:layout_editor_absoluteX="25dp"
                 tools:layout_editor_absoluteY="88dp" />
+            <!--android:layout_alignParentStart="true"
+            android:layout_below="@+id/email_address"-->
 
             <EditText
                 android:id="@+id/email_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/LastName"
+
                 android:layout_marginTop="33dp"
                 android:ems="10"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 tools:layout_editor_absoluteX="25dp"
                 tools:layout_editor_absoluteY="88dp" />
+                <!--android:layout_alignParentStart="true"
+                android:layout_below="@+id/LastName"-->
 
             <EditText
                 android:id="@+id/Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/Password"
+
                 android:layout_marginTop="47dp"
                 android:ems="10"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 tools:layout_editor_absoluteX="25dp"
                 tools:layout_editor_absoluteY="88dp" />
-
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_below="@+id/email_address"-->
             <EditText
                 android:id="@+id/ConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/ConfirmPassword"
                 android:layout_marginTop="47dp"
                 android:ems="10"
-                android:hint="confirm password"
+                android:hint="@string/confirm_password"
                 android:inputType="textPassword"
                 tools:layout_editor_absoluteX="25dp"
                 tools:layout_editor_absoluteY="88dp" />
+            <!--android:layout_alignParentStart="true"-->
 
+
+            <Spinner
+                android:id="@+id/Security_Questions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:hint="Security Question"
+                android:spinnerMode="dropdown" />
 
             <EditText
-                android:id="@+id/Address"
+                android:id="@+id/Security_Answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/PhoneNumber"
+
                 android:layout_marginTop="47dp"
                 android:ems="10"
-                android:hint="@string/address"
-                android:inputType="textPostalAddress"
+                android:hint="@string/security_answer"
+                android:inputType="text|textPostalAddress"
                 tools:layout_editor_absoluteX="25dp"
                 tools:layout_editor_absoluteY="88dp" />
+            <!--android:layout_alignParentStart="true"
+             android:layout_below="@+id/Security_Questions"-->
 
             <Button
                 android:id="@+id/submit_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="17dp"
                 android:text="@string/submit"
                 tools:layout_editor_absoluteX="148dp"
                 tools:layout_editor_absoluteY="362dp" />
+            <!--android:layout_alignParentStart="true"-->
+
+            <Button
+            android:id="@+id/signUpWithGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:drawableLeft="@drawable/google"
+            android:drawablePadding="2dip"
+            android:paddingLeft="30dip"
+            android:paddingRight="26dip"
+            android:background="@android:color/white"
+            android:text="Sign up with Google" />
+
         </LinearLayout>
     </ScrollView>
 
