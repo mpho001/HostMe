@@ -120,6 +120,25 @@
                 android:text="@string/submit"
                 tools:layout_editor_absoluteX="148dp"
                 tools:layout_editor_absoluteY="362dp" />
+
+            <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/google" />-->
+
+            <Button
+                android:id="@+id/signUpWithGoogle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:drawableLeft="@drawable/google"
+                android:drawablePadding="2dip"
+                android:paddingLeft="30dip"
+                android:paddingRight="26dip"
+                android:background="@android:color/white"
+                android:text="Sign up with Google" />
+
+
         </LinearLayout>
     </ScrollView>
 
