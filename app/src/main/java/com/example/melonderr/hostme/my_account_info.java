@@ -1,8 +1,11 @@
 package com.example.melonderr.hostme;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -29,15 +32,41 @@ public class my_account_info extends AppCompatActivity {
 
         Button changePasswordButton = findViewById(R.id.changePassword);
         changePasswordButton.setOnClickListener(new View.OnClickListener(){
-      @Override
-        public void onClick(View v){
-          Intent i = new Intent(my_account_info.this, changePassword.class);
-          startActivity(i);
+          @Override
+            public void onClick(View v){
+              Intent i = new Intent(my_account_info.this, changePassword.class);
+              startActivity(i);
 
+
+
+                }
+            });
+
+        /*
+        Button deleteAccount = findViewById(R.id.deleteAccount);
+        deleteAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                // if click Yes
+                                break;
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                // if click No
+                                break;
+                        }
+                    }
+                };
+                AlertDialog.Builder builder = new AlertDialog.Builder(findViewById().getContext());
+                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
 
 
             }
-        });
+        });*/
 
     }
 }
