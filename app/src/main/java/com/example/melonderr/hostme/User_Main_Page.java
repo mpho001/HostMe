@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -71,6 +72,15 @@ public class User_Main_Page extends Activity {
             }
         });
         */
+
+        Button accountBtn = findViewById(R.id.userAccount);
+        accountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(User_Main_Page.this, my_account_info.class);
+                startActivity(i);
+            }
+        });
     }
 
 //    GridView grid;
