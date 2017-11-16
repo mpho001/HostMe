@@ -10,7 +10,7 @@ import android.content.Intent;
 import android.widget.Button;
 
 public class my_account_info extends AppCompatActivity {
-    private Button changePasswordButton;
+   // private Button changePasswordButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,14 +26,13 @@ public class my_account_info extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        changePasswordButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(my_account_info.this, changePassword.class));
+     //   changePasswordButton.setOnClickListener(new View.OnClickListener(){
+      //      @Override
+        //    public void onClick(View v){
+          //      startActivity(new Intent(my_account_info.this, changePassword.class));
 
-            }
-        });
+            //}
+        };
+
     }
 
-
-}
