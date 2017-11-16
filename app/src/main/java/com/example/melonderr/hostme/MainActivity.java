@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "SignInActivity";
     // private TextView mStatusTextView;
-    String googleEmail;
+    public String googleEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +102,13 @@ public class MainActivity extends AppCompatActivity implements
         // trying to get user information
         // GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         GoogleSignInAccount acct = result.getSignInAccount();
-        googleEmail = acct.getEmail();
+        if (acct != null) {
+            googleEmail = acct.getEmail();
+        }
+        else {
+            Toast.makeText(this, "acct was null", Toast.LENGTH_SHORT).show();
+        }
+
 //        Toast.makeText(getApplicationContext(),
 //                googleEmail, Toast.LENGTH_SHORT).show();
 

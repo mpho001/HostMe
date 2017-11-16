@@ -17,6 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Messaging extends AppCompatActivity implements View.OnClickListener {
+    Restaurant_Search here = new Restaurant_Search();
+    CharSequence restName = here.name;
+
     EditText phNumTxt;
     EditText msgTxt;
 //    private static final int PERMISSION_REQUEST_CODE = 1;
@@ -50,6 +53,10 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
         phNumTxt = (findViewById(R.id.phoneNumber));
         msgTxt = findViewById(R.id.body);
         findViewById(R.id.send).setOnClickListener(this);
+
+        // Uncomment when this is linked to the restaurant page
+//        TextView displayRestName = findViewById(R.id.restaurantName);
+//        displayRestName.setText(restName);
 
         // SMS still works on APIs >= 23
 
@@ -110,6 +117,7 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
                 sendMsg(phNum, msg);
                 break;
         }
+
     }
 
     public void set() {
@@ -119,6 +127,11 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
     protected void sendMsg(String num, String msg) {
         String SENT = "Message Sent";
         String DELIVERED = "Message Delivered";
+
+        // displaying outgoing messages
+        TextView outTxt = findViewById(R.id.outgoingMessage);
+        String out = "Me: " + msg;
+        outTxt.setText(out);
 
         PendingIntent sentPI = PendingIntent.getBroadcast(this, 0, new Intent(SENT),0);
         PendingIntent deliveredPI = PendingIntent.getBroadcast(this, 0, new Intent(DELIVERED),0);

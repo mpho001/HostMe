@@ -13,37 +13,58 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="105dp"
+        android:layout_marginTop="13dp"
         android:ems="10"
-        android:inputType="phone"
-        android:hint="Phone Number" />
+        android:hint="Phone Number"
+        android:inputType="phone" />
 
     <EditText
         android:id="@+id/body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/phoneNumber"
-        android:layout_below="@+id/phoneNumber"
-        android:layout_marginTop="41dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="22dp"
+        android:layout_marginStart="21dp"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Message" />
+        android:hint="Message"
+        android:inputType="text" />
 
     <Button
         android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/body"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp"
+        android:layout_alignBaseline="@+id/body"
+        android:layout_alignBottom="@+id/body"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="29dp"
         android:text="Send" />
 
     <TextView
         android:id="@+id/displayMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/send"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/phoneNumber"
+        android:layout_marginTop="104dp"
+        android:text="Incoming" />
+
+    <TextView
+        android:id="@+id/outgoingMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/displayMessage"
+        android:layout_marginTop="135dp"
+        android:text="Outgoing" />
+
+    <TextView
+        android:id="@+id/restaurantName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phoneNumber"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:text="TextView" />
+        android:layout_marginTop="34dp"
+        android:text="Restuarant Name"
+        android:textSize="24sp" />
 </RelativeLayout>
