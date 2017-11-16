@@ -57,7 +57,7 @@ public class User_Main_Page extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user__main__page);
-
+        /*
         CustomGrid adapter = new CustomGrid(User_Main_Page.this, web, imageId);
         grid=(GridView)findViewById(R.id.grid);
         grid.setAdapter(adapter);
@@ -70,6 +70,7 @@ public class User_Main_Page extends Activity {
 
             }
         });
+        */
     }
 
 //    GridView grid;

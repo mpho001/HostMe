@@ -103,8 +103,8 @@ public class MainActivity extends AppCompatActivity implements
         // GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         GoogleSignInAccount acct = result.getSignInAccount();
         googleEmail = acct.getEmail();
-        Toast.makeText(getApplicationContext(),
-                googleEmail, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),
+//                googleEmail, Toast.LENGTH_SHORT).show();
 
         // TODO
         // if email doesn't exist in database, prompt user that account doesn't exist for app
