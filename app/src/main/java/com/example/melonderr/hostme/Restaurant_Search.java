@@ -16,6 +16,7 @@ public class Restaurant_Search extends AppCompatActivity {
     int PLACE_PICKER_REQUEST = 1;
     public CharSequence name;
     public CharSequence phone;
+    public CharSequence rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,11 @@ public class Restaurant_Search extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PLACE_PICKER_REQUEST && resultCode == RESULT_OK) {
             Place place = PlacePicker.getPlace(data, this);
+
             name = place.getName();
             phone = place.getPhoneNumber();
+            float rating = place.getRating();
+
             String toastMsg = String.format("Place: %s", name);
             Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
         }
