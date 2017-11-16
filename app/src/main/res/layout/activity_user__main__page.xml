@@ -26,28 +26,26 @@
         android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="11dp"
+        android:layout_below="@+id/greeting"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="62dp"
+        android:layout_toEndOf="@+id/userAccount"
         android:onClick="searchPage"
         android:text="SearchTest" />
 
-    <GridView
-        android:id="@+id/grid"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/userAccount"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:layout_alignBaseline="@+id/search"
+        android:layout_alignBottom="@+id/search"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:columnWidth="100dp"
-        android:gravity="center"
-        android:numColumns="3"
-        android:stretchMode="columnWidth">
-
-    </GridView>
+        android:layout_marginStart="25dp"
+        android:text="Account" />
 
 
-        <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_alignParentStart="true"-->
         <!--android:layout_alignParentTop="true"-->
         <!--android:layout_marginTop="229dp"-->
 

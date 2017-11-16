@@ -177,11 +177,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_9 = "MESSAGES";
     public static final String COL_10 = "RESERVATIONS";
     public static final String COL_11 = "SECURITY_QUESTION1";
-    public static final String COL_12 = "SECURITY_QUESTION2";
-    public static final String COL_13 = "SECURITY_QUESTION3";
+//    public static final String COL_12 = "SECURITY_QUESTION2";
+//    public static final String COL_13 = "SECURITY_QUESTION3";
     public static final String COL_14 = "SECURITY_ANSWER1";
-    public static final String COL_15 = "SECURITY_ANSWER2";
-    public static final String COL_16 = "SECURITY_ANSWER3";
+//    public static final String COL_15 = "SECURITY_ANSWER2";
+//    public static final String COL_16 = "SECURITY_ANSWER3";
 
     public static final String TABLE_NAME_2 = "RESERVATION_TABLE";
     public static final String RCOL_1 = "ID";
@@ -200,9 +200,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,FIRST_NAME TEXT,LAST_NAME TEXT,PHONE_NUMBER TEXT, EMAIL TEXT, PASSWORD TEXT," +
-                "OLD_PASSWORD TEXT, REVIEWS TEXT, MESSAGES TEXT, RESERVATIONS TEXT, SECURITY_QUESTION1 TEXT,SECURITY_QUESTION2 TEXT, SECURITY_QUESTION3 TEXT," +
-                "SECURITY_ANSWER1 TEXT, SECURITY_ANSWER2 TEXT, SECURITY_ANSWER3 TEXT)");
+                "OLD_PASSWORD TEXT, REVIEWS TEXT, MESSAGES TEXT, RESERVATIONS TEXT, SECURITY_QUESTION1 TEXT,SECURITY_ANSWER1 TEXT)");
 
+///*SECURITY_QUESTION2 TEXT, SECURITY_QUESTION3 TEXT,",, SECURITY_ANSWER2 TEXT, SECURITY_ANSWER3 TEXT*/
         db.execSQL("create table " + TABLE_NAME_2 +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,FIRST_NAME TEXT,LAST_NAME TEXT,PHONE_NUMBER TEXT, RESTAURANT_NAME TEXT," +
                 "TIME_OF_RESERVATION TEXT)");
     }
@@ -215,8 +215,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertData(String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER, String EMAIL, String PASSWORD, String OLDPASSWORD,
-                              String REVIEWS, String MESSAGES, String RESERVATION, String SECURITY_QUESTION1, String SECURITY_QUESTION2, String SECURITY_QUESTION3,
-                              String SECURITY_ANSWER1, String SECURITY_ANSWER2, String SECURITY_ANSWER3) {
+                              String REVIEWS, String MESSAGES, String RESERVATION, String SECURITY_QUESTION1,// String SECURITY_QUESTION2, String SECURITY_QUESTION3,
+                              String SECURITY_ANSWER1) { //, String SECURITY_ANSWER2, String SECURITY_ANSWER3
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2,FIRST_NAME);
@@ -229,11 +229,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_9,MESSAGES);
         contentValues.put(COL_10,RESERVATION);
         contentValues.put(COL_11,SECURITY_QUESTION1);
-        contentValues.put(COL_12,SECURITY_QUESTION2);
-        contentValues.put(COL_13,SECURITY_QUESTION3);
+//        contentValues.put(COL_12,SECURITY_QUESTION2);
+//        contentValues.put(COL_13,SECURITY_QUESTION3);
         contentValues.put(COL_14,SECURITY_ANSWER1);
-        contentValues.put(COL_15,SECURITY_ANSWER2);
-        contentValues.put(COL_16,SECURITY_ANSWER3);
+//        contentValues.put(COL_15,SECURITY_ANSWER2);
+//        contentValues.put(COL_16,SECURITY_ANSWER3);
 
         long result = db.insert(TABLE_NAME,null ,contentValues);
         if(result == -1)
@@ -275,16 +275,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             contentValues.put(COL_10,RESERVATION);}
         if(!(SECURITY_QUESTION1.equals(""))){
             contentValues.put(COL_11,SECURITY_QUESTION1);}
-        if(!(SECURITY_QUESTION2.equals(""))){
-            contentValues.put(COL_12,SECURITY_QUESTION2);}
-        if(!(SECURITY_QUESTION3.equals(""))){
-            contentValues.put(COL_13, SECURITY_QUESTION3);}
+//        if(!(SECURITY_QUESTION2.equals(""))){
+//            contentValues.put(COL_12,SECURITY_QUESTION2);}
+//        if(!(SECURITY_QUESTION3.equals(""))){
+//            contentValues.put(COL_13, SECURITY_QUESTION3);}
         if(!(SECURITY_ANSWER1.equals(""))){
             contentValues.put(COL_14, SECURITY_ANSWER1);}
-        if(!(SECURITY_ANSWER2.equals(""))) {
-            contentValues.put(COL_15, SECURITY_ANSWER2);}
-        if(!(SECURITY_ANSWER3.equals(""))){
-            contentValues.put(COL_16, SECURITY_ANSWER3);}
+//        if(!(SECURITY_ANSWER2.equals(""))) {
+//            contentValues.put(COL_15, SECURITY_ANSWER2);}
+//        if(!(SECURITY_ANSWER3.equals(""))){
+//            contentValues.put(COL_16, SECURITY_ANSWER3);}
         db.update(TABLE_NAME, contentValues, "ID = ?",new String[] { id });
         return true;
     }
@@ -351,7 +351,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME_2, "ID = ?",new String[] {id});
     }
-
+//    public String getSingleEntry(String userName)
+//    {
+//        Cursor cursor= db.query("LOGIN", null, " USERNAME=?", new String[]{userName}, null, null, null);
+//        if(cursor.getCount()<1) // UserName Not Exist
+//        {
+//            cursor.close();
+//            return "NOT EXIST";
+//        }
+//        cursor.moveToFirst();
+//        String password= cursor.getString(cursor.getColumnIndex("PASSWORD"));
+//        cursor.close();
+//        return password;
+//    }
 }
 
 
