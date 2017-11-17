@@ -38,7 +38,6 @@ public class my_account_info extends AppCompatActivity {
               startActivity(i);
 
 
-
                 }
             });
 

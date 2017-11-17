@@ -81,6 +81,15 @@ public class User_Main_Page extends Activity {
                 startActivity(i);
             }
         });
+
+        Button reservationButton = findViewById(R.id.reservation);
+        reservationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(User_Main_Page.this, ReservationRecord.class);
+                startActivity(i);
+            }
+        });
     }
 
 //    GridView grid;
