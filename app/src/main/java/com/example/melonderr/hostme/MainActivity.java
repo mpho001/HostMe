@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Button;
+import android.database.Cursor;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -18,6 +20,12 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import com.example.melonderr.hostme.InputValidation;
+import com.example.melonderr.hostme.DatabaseHelper;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
+import android.app.Dialog;
+
 
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
@@ -25,7 +33,12 @@ public class MainActivity extends AppCompatActivity implements
 
 //    GoogleApiClient.OnConnectionFailedListener,
 //    View.OnClickListener
+    //----------------------login requirements--------------
+    DatabaseHelper myDb;
+    private EditText login_email = null;
+    private EditText login_password = null;
 
+    //------------------------------------------------------
     private GoogleApiClient mGoogleApiClient;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "SignInActivity";
@@ -36,7 +49,13 @@ public class MainActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //database for sign in ======================================
+        myDb = new DatabaseHelper(this);
+        login_email = (EditText) findViewById(R.id.email);
+        login_password = (EditText) findViewById(R.id.password);
 
+
+        //============================================================
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -157,20 +176,90 @@ public class MainActivity extends AppCompatActivity implements
 
 
     public void userPage(View view) {
-        EditText e1 = findViewById(R.id.email);
-        EditText e2 = findViewById(R.id.password);
-        if (e1.getText().toString().equals("admin") &&
-                e2.getText().toString().equals("admin"))
-        {
-            Toast.makeText(getApplicationContext(),
-                    "Success!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, User_Main_Page.class);
-            startActivity(intent);
-        }
-        else {
-            Toast.makeText(getApplicationContext(),
+        Button btnSignIn=(Button) findViewById(R.id.signin_button);
+        // Set On ClickListener
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+
+         public void onClick(View v) {
+             // get The User name and Password
+             if((login_email.getText().toString().equals("")))
+             {
+                 login_email.setError("Email is blank");
+//                 Toast.makeText(MainActivity.this,"Email is blank",Toast.LENGTH_LONG).show();
+             }
+             if((login_password.getText().toString().equals("")))
+             {
+                 login_password.setError("Password is blank");
+//                 Toast.makeText(MainActivity.this,"Password is blank",Toast.LENGTH_LONG).show();
+             }
+             else
+             {
+                 Cursor res = myDb.getAllData();
+                 if(res.getCount() == 0)
+                 {
+                     Toast.makeText(getApplicationContext(),
                     "Failure!", Toast.LENGTH_SHORT).show();
-        }
+                     return;
+                 }
+                 else
+                 {
+                     int flag = 0;
+                     while (res.moveToNext())
+                     {
+                         //Toast.makeText(MainActivity.this,res.getString(4),Toast.LENGTH_SHORT).show();
+                         if(res.getString(4).equals(login_email.getText().toString()))
+                         {
+                             if(res.getString(5).equals(login_password.getText().toString()))
+                             {
+
+                                 Intent i = new Intent(MainActivity.this, User_Main_Page.class);
+                                 startActivity(i);
+//                                 Toast.makeText(MainActivity.this,"Login Successful",Toast.LENGTH_LONG).show();
+                             }
+                             else
+                             {
+                                 login_password.setError("Password is incorrect");
+//                                 Toast.makeText(MainActivity.this,"Password is incorrect",Toast.LENGTH_LONG).show();
+                             }
+                             flag =1;
+                         }
+                     }
+                     if(flag != 1) {
+                         login_email.setError("Email not found");
+                     }
+//                     Toast.makeText(MainActivity.this,"Email not found",Toast.LENGTH_LONG).show();
+                     //Toast.makeText(MainActivity.this,login_email.getText().toString(),Toast.LENGTH_LONG).show();
+                 }
+             }
+         }
+        });
+//             // fetch the Password form database for respective user name
+//             String storedPassword=DatabaseHelper.getSinlgeEntry(userName);
+//
+//             // check if the Stored password matches with  Password entered by user
+//             if(password.equals(storedPassword))
+//             {
+//                 Toast.makeText(MainActivity.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
+//                 dialog.dismiss();
+//             }
+//             else
+//             {
+//                 Toast.makeText(MainActivity.this, "User Name or Password does not match", Toast.LENGTH_LONG).show();
+//             }
+//         }
+//
+//
+//        {
+//            Toast.makeText(getApplicationContext(),
+//                    "Success!", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(this, User_Main_Page.class);
+//            startActivity(intent);
+//        }
+//        else {
+//            Toast.makeText(getApplicationContext(),
+//                    "Failure!", Toast.LENGTH_SHORT).show();
+//        }
+//    }
     }
 
     // Called when user clicks register button
