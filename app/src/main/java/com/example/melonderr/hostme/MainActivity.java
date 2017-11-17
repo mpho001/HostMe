@@ -20,12 +20,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
-import com.example.melonderr.hostme.InputValidation;
-import com.example.melonderr.hostme.DatabaseHelper;
-import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
-import android.app.Dialog;
-
 
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
@@ -44,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements
     private static final String TAG = "SignInActivity";
     // private TextView mStatusTextView;
     public String googleEmail;
-
+    Button btnSignIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements
         myDb = new DatabaseHelper(this);
         login_email = (EditText) findViewById(R.id.email);
         login_password = (EditText) findViewById(R.id.password);
-
+        btnSignIn=(Button) findViewById(R.id.signin_button);
 
         //============================================================
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -175,12 +169,12 @@ public class MainActivity extends AppCompatActivity implements
     }
 
 
-    public void userPage(View view) {
-        Button btnSignIn=(Button) findViewById(R.id.signin_button);
-        // Set On ClickListener
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
+//    public void userPage(View view) {
 
-         public void onClick(View v) {
+        // Set On ClickListener
+//        btnSignIn.setOnClickListener(new View.OnClickListener() {
+
+         public void userPage(View v) {
              // get The User name and Password
              if((login_email.getText().toString().equals("")))
              {
@@ -231,8 +225,8 @@ public class MainActivity extends AppCompatActivity implements
                      //Toast.makeText(MainActivity.this,login_email.getText().toString(),Toast.LENGTH_LONG).show();
                  }
              }
-         }
-        });
+//         }
+//        });
 //             // fetch the Password form database for respective user name
 //             String storedPassword=DatabaseHelper.getSinlgeEntry(userName);
 //
