@@ -249,9 +249,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean updateData(String id,String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER, String EMAIL, String PASSWORD, String OLDPASSWORD,
-                              String REVIEWS, String MESSAGES, String RESERVATION, String SECURITY_QUESTION1, String SECURITY_QUESTION2,
-                              String SECURITY_QUESTION3, String SECURITY_ANSWER1, String SECURITY_ANSWER2, String SECURITY_ANSWER3) {
+    public boolean updateData(String id,String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER,
+                              String EMAIL, String PASSWORD, String OLDPASSWORD,
+                              String REVIEWS, String MESSAGES, String RESERVATION, String SECURITY_QUESTION1, String SECURITY_ANSWER1) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1,id);
@@ -294,7 +294,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.delete(TABLE_NAME, "ID = ?",new String[] {id});
     }
 
-    public boolean insertDataReservation(String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER,String RESTAURANT_NAME,String TIME_OF_RESERVATION ) {
+    public boolean insertDataReservation(String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER,
+                                         String RESTAURANT_NAME,String TIME_OF_RESERVATION ) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(RCOL_2,FIRST_NAME);
@@ -327,7 +328,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean updateDataReservation(String id,String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER,String RESTAURANT_NAME,String TIME_OF_RESERVATION)
+    public boolean updateDataReservation(String id,String FIRST_NAME,String LAST_NAME,
+                                         String PHONE_NUMBER,String RESTAURANT_NAME,String TIME_OF_RESERVATION)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
