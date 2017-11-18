@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements
 
 
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.sign_out_button).setOnClickListener(this);
+//        findViewById(R.id.sign_out_button).setOnClickListener(this);
     }
 
     private void signIn() {
@@ -153,11 +153,11 @@ public class MainActivity extends AppCompatActivity implements
                         "Sign In", Toast.LENGTH_SHORT).show();
                 signIn();
                 break;
-            case R.id.sign_out_button:
-                Toast.makeText(getApplicationContext(),
-                        "Signing Out", Toast.LENGTH_SHORT).show();
-                signOut();
-                break;
+//            case R.id.sign_out_button:
+//                Toast.makeText(getApplicationContext(),
+//                        "Signing Out", Toast.LENGTH_SHORT).show();
+//                signOut();
+//                break;
         }
     }
 
@@ -174,57 +174,58 @@ public class MainActivity extends AppCompatActivity implements
         // Set On ClickListener
 //        btnSignIn.setOnClickListener(new View.OnClickListener() {
 
-         public void userPage(View v) {
-             // get The User name and Password
-             if((login_email.getText().toString().equals("")))
-             {
-                 login_email.setError("Email is blank");
+     public void userPage(View v) {
+         // get The User name and Password
+         if((login_email.getText().toString().equals("")))
+         {
+             login_email.setError("Email is blank");
 //                 Toast.makeText(MainActivity.this,"Email is blank",Toast.LENGTH_LONG).show();
-             }
-             if((login_password.getText().toString().equals("")))
-             {
-                 login_password.setError("Password is blank");
+         }
+         if((login_password.getText().toString().equals("")))
+         {
+             login_password.setError("Password is blank");
 //                 Toast.makeText(MainActivity.this,"Password is blank",Toast.LENGTH_LONG).show();
+         }
+         else
+         {
+             Cursor res = myDb.getAllData();
+             if(res.getCount() == 0)
+             {
+                 Toast.makeText(getApplicationContext(),
+                "Failure!", Toast.LENGTH_SHORT).show();
+                 return;
              }
              else
              {
-                 Cursor res = myDb.getAllData();
-                 if(res.getCount() == 0)
+                 int flag = 0;
+                 while (res.moveToNext())
                  {
-                     Toast.makeText(getApplicationContext(),
-                    "Failure!", Toast.LENGTH_SHORT).show();
-                     return;
-                 }
-                 else
-                 {
-                     int flag = 0;
-                     while (res.moveToNext())
+                     //Toast.makeText(MainActivity.this,res.getString(4),Toast.LENGTH_SHORT).show();
+                     if(res.getString(4).equals(login_email.getText().toString()))
                      {
-                         //Toast.makeText(MainActivity.this,res.getString(4),Toast.LENGTH_SHORT).show();
-                         if(res.getString(4).equals(login_email.getText().toString()))
+                         if(res.getString(5).equals(login_password.getText().toString()))
                          {
-                             if(res.getString(5).equals(login_password.getText().toString()))
-                             {
-
-                                 Intent i = new Intent(MainActivity.this, User_Main_Page.class);
-                                 startActivity(i);
+//                             final Global mApp = ((Global) getApplicationContext());
+//                             mApp.setGlobalVarValue(login_email.getText().toString());
+                             Intent i = new Intent(MainActivity.this, User_Main_Page.class);
+                             startActivity(i);
 //                                 Toast.makeText(MainActivity.this,"Login Successful",Toast.LENGTH_LONG).show();
-                             }
-                             else
-                             {
-                                 login_password.setError("Password is incorrect");
-//                                 Toast.makeText(MainActivity.this,"Password is incorrect",Toast.LENGTH_LONG).show();
-                             }
-                             flag =1;
                          }
+                         else
+                         {
+                             login_password.setError("Password is incorrect");
+//                                 Toast.makeText(MainActivity.this,"Password is incorrect",Toast.LENGTH_LONG).show();
+                         }
+                         flag =1;
                      }
-                     if(flag != 1) {
-                         login_email.setError("Email not found");
-                     }
-//                     Toast.makeText(MainActivity.this,"Email not found",Toast.LENGTH_LONG).show();
-                     //Toast.makeText(MainActivity.this,login_email.getText().toString(),Toast.LENGTH_LONG).show();
                  }
+                 if(flag != 1) {
+                     login_email.setError("Email not found");
+                 }
+//                     Toast.makeText(MainActivity.this,"Email not found",Toast.LENGTH_LONG).show();
+                 //Toast.makeText(MainActivity.this,login_email.getText().toString(),Toast.LENGTH_LONG).show();
              }
+         }
 //         }
 //        });
 //             // fetch the Password form database for respective user name
