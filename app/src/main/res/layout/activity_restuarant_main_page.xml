@@ -53,9 +53,10 @@
         android:id="@+id/rating"
         android:layout_width="50dp"
         android:layout_height="25dp"
+        android:layout_marginBottom="84dp"
         android:layout_marginStart="20dp"
         android:text="Rating"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="137dp" />
+        app:layout_constraintBottom_toTopOf="@+id/reserve"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
