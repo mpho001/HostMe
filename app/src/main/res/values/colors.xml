@@ -2,6 +2,11 @@
 <resources>
     <color name="colorPrimary">#F94949</color> <!--#3F51B5</color>!>-->
     <color name="colorPrimaryDark">#B33434 </color><!--#303F9F</color>-->
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#F9C8C8</color>
     <color name ="white">#ffffff </color>
+    <color name="red_pressed">#DD4B39</color>
+    <color name="red_normal">#B64032</color>
+
+    <color name="blue_pressed">#5A76B1</color>
+    <color name="blue_normal">#516590</color>
 </resources>

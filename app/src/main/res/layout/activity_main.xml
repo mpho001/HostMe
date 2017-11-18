@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
+    android:background="@color/colorPrimary"
     tools:context="com.example.melonderr.hostme.MainActivity">
 
 
@@ -38,14 +39,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/password"
+
+
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="51dp"
         android:ems="10"
-        android:hint="@string/email"
+        android:drawableLeft="@drawable/account"
+        android:hint="  Email"
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="182dp" />
+        tools:layout_editor_absoluteY="182dp"
+        />
+<!--
 
+
+-->
     <EditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
@@ -53,29 +61,32 @@
         android:layout_above="@+id/signin_button"
         android:layout_alignStart="@+id/email"
         android:layout_marginBottom="48dp"
+        android:drawableLeft="@drawable/key"
         android:ems="10"
-        android:hint="@string/password"
+        android:hint="  Password"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="288dp" />
-
     <Button
         android:id="@+id/signin_button"
-        android:layout_width="wrap_content"
+        android:layout_width="160sp"
         android:layout_height="wrap_content"
 
+        android:background="@drawable/button_boarder"
         android:layout_above="@+id/register_button"
         android:layout_centerHorizontal="true"
+
         android:onClick="userPage"
-        android:text="@string/submit"
+        android:text="Login"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="362dp" />
 
     <Button
         android:id="@+id/register_button"
-        android:layout_width="wrap_content"
+        android:layout_width="160sp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/button_boarder"
         android:layout_alignStart="@+id/signin_button"
         android:layout_marginBottom="73dp"
         android:onClick="registerPage"
@@ -83,12 +94,18 @@
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
+        android:layout_width="160sp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
+
+
+        android:layout_above="@+id/signin_button"
+        android:layout_alignStart="@+id/signin_button"
+        android:background="@color/red_normal" />
+    <!--android:layout_toStartOf="@+id/signin_button"
         android:layout_marginEnd="18dp"
         android:layout_marginTop="21dp"
-        android:layout_toStartOf="@+id/signin_button" />
+        android:layout_below="@+id/register_button"
+    -->
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -102,12 +119,12 @@
         android:visibility="gone"
         tools:visibility="visible">
 
-        <Button
-            android:id="@+id/sign_out_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/sign_out" />
+        <!--<Button-->
+            <!--android:id="@+id/sign_out_button"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="@string/sign_out" />-->
 
     </LinearLayout>
 
