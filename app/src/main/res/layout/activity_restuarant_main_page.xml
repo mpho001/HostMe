@@ -10,8 +10,6 @@
         android:id="@+id/reserve"
         android:layout_width="360dp"
         android:layout_height="48dp"
-        android:layout_alignStart="@+id/ratingBar"
-        android:layout_below="@+id/ratingBar"
         android:layout_marginBottom="40dp"
         android:layout_marginTop="260dp"
         android:text="Reserve"
