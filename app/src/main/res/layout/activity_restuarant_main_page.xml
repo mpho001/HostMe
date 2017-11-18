@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.melonderr.hostme.RestuarantMainPage">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/reserve"
+        android:layout_width="360dp"
+        android:layout_height="48dp"
+        android:layout_alignStart="@+id/ratingBar"
+        android:layout_below="@+id/ratingBar"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="260dp"
+        android:text="Reserve"
+        app:layout_constraintBottom_toTopOf="@+id/message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignStart="@+id/reserve"
+        android:layout_below="@+id/reserve"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="40dp"
+        android:text="Message"
+        app:layout_constraintBottom_toTopOf="@+id/reviews"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reserve" />
+
+    <Button
+        android:id="@+id/reviews"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignEnd="@+id/reserve"
+        android:layout_below="@+id/message"
+        android:layout_marginBottom="60dp"
+        android:layout_marginTop="40dp"
+        android:text="reviews"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:text="Rating"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="137dp" />
+
+</RelativeLayout>
