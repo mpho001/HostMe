@@ -92,7 +92,9 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".currentReservation" />
         <activity android:name=".pastReservation" />
-        <activity android:name=".Google"></activity>
+        <activity android:name=".Google" />
+        <activity android:name=".Reserve" />
+        <activity android:name=".Review"></activity>
     </application>
 
 </manifest>
