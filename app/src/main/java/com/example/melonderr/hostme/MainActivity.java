@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements
     // private TextView mStatusTextView;
     public String googleEmail;
     Button btnSignIn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements
         //============================================================
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
+                .requestIdToken("549868407518-p84vde9pfruh6lu27kr0rn3f64bu64lk.apps.googleusercontent.com")
                 .build();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -115,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements
 
         // trying to get user information
         // GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+
         GoogleSignInAccount acct = result.getSignInAccount();
         if (acct != null) {
             googleEmail = acct.getEmail();
@@ -155,16 +158,17 @@ public class MainActivity extends AppCompatActivity implements
 
     private void updateUI(boolean signedIn) {
         if (signedIn) {
-            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
-            findViewById(R.id.email).setVisibility(View.GONE);
-            findViewById(R.id.password).setVisibility(View.GONE);
+//            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+//            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
+//            findViewById(R.id.email).setVisibility(View.GONE);
+//            findViewById(R.id.password).setVisibility(View.GONE);
         } else {
             // mStatusTextView.setText(R.string.signed_out);
-            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
-            findViewById(R.id.email).setVisibility(View.VISIBLE);
-            findViewById(R.id.password).setVisibility(View.VISIBLE);
+//            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
+//            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+//            findViewById(R.id.email).setVisibility(View.VISIBLE);
+//            findViewById(R.id.password).setVisibility(View.VISIBLE);
+
         }
     }
 

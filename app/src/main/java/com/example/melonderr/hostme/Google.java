@@ -79,7 +79,7 @@ public class Google extends AppCompatActivity implements
 //        startActivity(intent);
     }
 
-    private void signOut() {
+    public void signOut() {
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
