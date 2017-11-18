@@ -62,6 +62,10 @@ public class Registration extends AppCompatActivity {
             editSurname.setText(Google.lastName);
             editEmail.setText(Google.googleEmail);
             findViewById(R.id.signUpWithGoogle).setVisibility(View.GONE);
+            findViewById(R.id.Password).setVisibility(View.GONE);
+            findViewById(R.id.ConfirmPassword).setVisibility(View.GONE);
+            findViewById(R.id.Security_Answer).setVisibility(View.GONE);
+            findViewById(R.id.Security_Questions).setVisibility(View.GONE);
         }
 
         btnSignupGoogle.setOnClickListener(new View.OnClickListener() {
@@ -150,10 +154,20 @@ public class Registration extends AppCompatActivity {
 //                new View.OnClickListener() {
 //        @Override
 //        public void onClick(View v) {
-            boolean isInserted = myDb.insertData(editName.getText().toString(),
+        boolean isInserted = false;
+        if(Google.loggedIn == 1)
+        {
+            isInserted = myDb.insertData(editName.getText().toString(),
                     editSurname.getText().toString(),editPhone.getText().toString(), editEmail.getText().toString(), editPassword.getText().toString()
                     ,editPassword.getText().toString() ,"","", "",
-                    /*editTextQuestion.getText().toString()*/ "" ,editAnswer.getText().toString());
+                    /*editTextQuestion.getText().toString()*/ "" ,"");
+        }
+        else {
+            isInserted = myDb.insertData(editName.getText().toString(),
+                    editSurname.getText().toString(), editPhone.getText().toString(), editEmail.getText().toString(), editPassword.getText().toString()
+                    , editPassword.getText().toString(), "", "", "",
+                    /*editTextQuestion.getText().toString()*/ "", editAnswer.getText().toString());
+        }
             if(isInserted == true) {
                 Toast.makeText(Registration.this,"Registered",Toast.LENGTH_LONG).show();
                 Intent i = new Intent(Registration.this, MainActivity.class);
@@ -204,24 +218,23 @@ public class Registration extends AppCompatActivity {
         }
         else editName.setError(null);
 
-        if(_Password.isEmpty() || _Password.length() < 4){
-            editPassword.setError("At least 4 characters");
-            valid = false;
-        }
-        else editPassword.setError(null);
+        if(Google.loggedIn != 1) {
+            if (_Password.isEmpty() || _Password.length() < 4) {
+                editPassword.setError("At least 4 characters");
+                valid = false;
+            } else editPassword.setError(null);
 
 
-        if(_ConfirmPassword.isEmpty() || !_Password.equals(_ConfirmPassword)){
-            editComfirmPassword.setError("Passwords to not match");
-            valid = false;
-        }
-        else editComfirmPassword.setError(null);
+            if (_ConfirmPassword.isEmpty() || !_Password.equals(_ConfirmPassword)) {
+                editComfirmPassword.setError("Passwords to not match");
+                valid = false;
+            } else editComfirmPassword.setError(null);
 
-        if(_Answer.isEmpty()||_Answer.length() < 2){
-            editAnswer.setError("At least 2 characters");
-            valid = false;
+            if (_Answer.isEmpty() || _Answer.length() < 2) {
+                editAnswer.setError("At least 2 characters");
+                valid = false;
+            } else editAnswer.setError(null);
         }
-        else editAnswer.setError(null);
 
 
 

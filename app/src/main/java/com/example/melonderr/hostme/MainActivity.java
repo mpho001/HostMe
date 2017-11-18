@@ -70,8 +70,6 @@ public class MainActivity extends AppCompatActivity implements
     public void signIn() {
          Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
          startActivityForResult(signInIntent, RC_SIGN_IN);
-        Toast.makeText(getApplicationContext(),
-                "Sign In from registration", Toast.LENGTH_SHORT).show();
 
 //        Intent intent = new Intent(this, User_Main_Page.class);
 //        startActivity(intent);
@@ -115,9 +113,6 @@ public class MainActivity extends AppCompatActivity implements
 //        Intent intent = new Intent(this, User_Main_Page.class);
 //        startActivity(intent);
 
-        Intent intent = new Intent(this, Messaging.class);
-        startActivity(intent);
-
         // trying to get user information
         // GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         GoogleSignInAccount acct = result.getSignInAccount();
@@ -126,6 +121,28 @@ public class MainActivity extends AppCompatActivity implements
         }
         else {
             Toast.makeText(this, "acct was null", Toast.LENGTH_SHORT).show();
+        }
+
+        int flag = 0;
+        Cursor res = myDb.getAllData();
+        if(res.getCount() == 0)
+        {
+            Toast.makeText(getApplicationContext(),
+                    "Failure!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            while (res.moveToNext()) {
+                if(res.getString(4).equals(googleEmail)) {
+                    Intent intent = new Intent(this, User_Main_Page.class);
+                    startActivity(intent);
+                    flag = 1;
+                }
+            }
+            if (flag != 1) {
+                Toast.makeText(getApplicationContext(),
+                        "Account does not exist!", Toast.LENGTH_SHORT).show();
+            }
         }
 
 //        Toast.makeText(getApplicationContext(),
