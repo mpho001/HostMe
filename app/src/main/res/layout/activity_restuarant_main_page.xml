@@ -10,8 +10,6 @@
         android:id="@+id/reserve"
         android:layout_width="360dp"
         android:layout_height="48dp"
-        android:layout_alignStart="@+id/ratingBar"
-        android:layout_below="@+id/ratingBar"
         android:layout_marginBottom="40dp"
         android:layout_marginTop="260dp"
         android:text="Reserve"
@@ -58,5 +56,37 @@
         android:text="Rating"
         app:layout_constraintBottom_toTopOf="@+id/reserve"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/userRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="77dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="123dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="Rating from users"
+        app:layout_constraintBottom_toTopOf="@+id/reserve"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rating"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/restaurantName"
+        android:layout_width="217dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="45dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="35dp"
+        android:ems="10"
+        android:hint="restaurant name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/userRating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
