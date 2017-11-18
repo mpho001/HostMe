@@ -55,6 +55,7 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
         findViewById(R.id.send).setOnClickListener(this);
 
         // Uncomment when this is linked to the restaurant page
+        // When you message the restaurant, add that to the list of restaurants that have been messaged
 //        TextView displayRestName = findViewById(R.id.restaurantName);
 //        displayRestName.setText(restName);
 

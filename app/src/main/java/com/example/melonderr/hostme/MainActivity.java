@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Registration reg = new Registration(MainActivity.this);
+
         //database for sign in ======================================
         myDb = new DatabaseHelper(this);
         login_email = (EditText) findViewById(R.id.email);
@@ -64,9 +67,12 @@ public class MainActivity extends AppCompatActivity implements
         findViewById(R.id.sign_out_button).setOnClickListener(this);
     }
 
-    private void signIn() {
-        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+    public void signIn() {
+         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+         startActivityForResult(signInIntent, RC_SIGN_IN);
+        Toast.makeText(getApplicationContext(),
+                "Sign In from registration", Toast.LENGTH_SHORT).show();
+
 //        Intent intent = new Intent(this, User_Main_Page.class);
 //        startActivity(intent);
     }

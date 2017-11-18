@@ -91,7 +91,8 @@
             android:label="@string/title_activity_reservation_record"
             android:theme="@style/AppTheme" />
         <activity android:name=".currentReservation" />
-        <activity android:name=".pastReservation"></activity>
+        <activity android:name=".pastReservation" />
+        <activity android:name=".Google"></activity>
     </application>
 
 </manifest>

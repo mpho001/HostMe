@@ -1,30 +1,24 @@
 package com.example.melonderr.hostme;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-
-import android.widget.AdapterView;
-import android.widget.Spinner;
-
-import android.content.Intent;
-import android.widget.Button;
-import android.widget.ArrayAdapter;
 import android.app.AlertDialog;
-import android.database.Cursor;
-//import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
-import java.util.ArrayList;
-import java.util.List;
+
+//import android.support.v7.app.ActionBarActivity;
 
 
 public class Registration extends AppCompatActivity {
+    // MainActivity forSignIn = new MainActivity();
+    // Google google = new Google();
+
     DatabaseHelper myDb;
     EditText editName,editSurname,editPhone,editPassword,editComfirmPassword ,editTextId, editTextQuestion,editEmail,editAnswer;
     Button btnAddData;
@@ -63,6 +57,22 @@ public class Registration extends AppCompatActivity {
         SecurityQuestion.setAdapter(adapter);
 //        SecurityQuestion.setOnItemSelectedListener(new Listener_Spinner());
 
+        if (Google.loggedIn == 1) {
+            editName.setText(Google.firstName);
+            editSurname.setText(Google.lastName);
+            editEmail.setText(Google.googleEmail);
+            findViewById(R.id.signUpWithGoogle).setVisibility(View.GONE);
+        }
+
+        btnSignupGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Google.class);
+                startActivity(intent);
+
+            }
+        });
+
         btnAddData.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
@@ -81,6 +91,7 @@ public class Registration extends AppCompatActivity {
 //            }
 //        });
     }
+
 //    public void addItemsOnSpinner2() {
 //
 //        SecurityQuestion = (Spinner) findViewById(R.id.Security_Questions);
