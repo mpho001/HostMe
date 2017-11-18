@@ -75,13 +75,13 @@
 
     <TextView
         android:id="@+id/restaurantName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
         android:layout_marginBottom="45dp"
         android:layout_marginEnd="75dp"
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
-        android:text="Name of the restaurant"
+        android:hint="Name of the restaurant"
         app:layout_constraintBottom_toTopOf="@+id/rating"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
