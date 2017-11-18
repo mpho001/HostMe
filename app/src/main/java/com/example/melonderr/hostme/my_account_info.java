@@ -1,18 +1,16 @@
 package com.example.melonderr.hostme;
 
-import android.app.Activity;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.content.Intent;
 import android.widget.Button;
 
 public class my_account_info extends AppCompatActivity {
+    Button sgnOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +38,16 @@ public class my_account_info extends AppCompatActivity {
 
                 }
             });
+
+        sgnOut = findViewById(R.id.signOut);
+
+        sgnOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         /*
         Button deleteAccount = findViewById(R.id.deleteAccount);
