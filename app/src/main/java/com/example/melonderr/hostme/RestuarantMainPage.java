@@ -13,8 +13,8 @@ public class RestuarantMainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restuarant_main_page);
 
-        Button accountBtn = findViewById(R.id.reviews);
-        accountBtn.setOnClickListener(new View.OnClickListener() {
+        Button reviewButton = findViewById(R.id.reviews);
+        reviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(RestuarantMainPage.this, Review.class);
@@ -22,8 +22,8 @@ public class RestuarantMainPage extends AppCompatActivity {
             }
         });
 
-        Button reservationButton = findViewById(R.id.reserve);
-        reservationButton.setOnClickListener(new View.OnClickListener() {
+        Button reserveButton = findViewById(R.id.reserve);
+        reserveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(RestuarantMainPage.this, Reserve.class);
