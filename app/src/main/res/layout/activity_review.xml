@@ -6,4 +6,17 @@
     android:layout_height="match_parent"
     tools:context="com.example.melonderr.hostme.Review">
 
+    <TextView
+        android:id="@+id/review"
+        android:layout_width="121dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="505dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="43dp"
+        android:text="Rate the restaurant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
