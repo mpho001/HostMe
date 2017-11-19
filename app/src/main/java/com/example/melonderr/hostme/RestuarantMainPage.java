@@ -17,9 +17,6 @@ public class RestuarantMainPage extends AppCompatActivity {
         TextView displayRestaurantName = findViewById(R.id.restaurantName2);
         displayRestaurantName.setText(Restaurant_Search.name);
 
-        //TextView displayRestaurantRating = findViewById(R.id.restaurantName2);
-        //displayRestaurantName.setText(Restaurant_Search.rating);
-
         Button reviewButton = findViewById(R.id.reviews);
         reviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
