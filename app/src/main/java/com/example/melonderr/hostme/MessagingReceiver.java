@@ -27,7 +27,8 @@ public class MessagingReceiver extends BroadcastReceiver {
             for (int i = 0; i < messages.length; ++i) {
                 // create from pdu is from message class
                 messages[i] = SmsMessage.createFromPdu((byte[])pdus[i]);
-                str += "Message from " + messages[i].getOriginatingAddress();
+                // str += "Message from " + messages[i].getOriginatingAddress();
+                str += "Message from " + Restaurant_Search.name;
                 str += ": ";
                 str += messages[i].getMessageBody();
                 str += "\n";

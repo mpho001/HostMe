@@ -8,17 +8,6 @@
 
 
     <EditText
-        android:id="@+id/phoneNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        android:ems="10"
-        android:hint="Phone Number"
-        android:inputType="phone" />
-
-    <EditText
         android:id="@+id/body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,29 +31,32 @@
 
     <TextView
         android:id="@+id/displayMessage"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/outgoingMessage"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/phoneNumber"
-        android:layout_marginTop="104dp"
+        android:layout_marginBottom="110dp"
         android:text="Incoming" />
 
     <TextView
         android:id="@+id/outgoingMessage"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/body"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/displayMessage"
-        android:layout_marginTop="135dp"
+        android:layout_marginBottom="173dp"
         android:text="Outgoing" />
 
     <TextView
         android:id="@+id/restaurantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/phoneNumber"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
-        android:text="Restuarant Name"
+        android:text="Restaurant Name"
         android:textSize="24sp" />
 </RelativeLayout>

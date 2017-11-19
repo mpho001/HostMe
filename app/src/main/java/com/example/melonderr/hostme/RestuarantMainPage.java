@@ -30,5 +30,14 @@ public class RestuarantMainPage extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        Button messagesButton = findViewById(R.id.message);
+        messagesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(RestuarantMainPage.this, Messaging.class);
+                startActivity(i);
+            }
+        });
     }
 }
