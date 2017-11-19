@@ -12,8 +12,8 @@
         android:layout_height="19dp"
         android:layout_marginBottom="70dp"
         android:layout_marginEnd="275dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="105dp"
         android:text="Date"
         app:layout_constraintBottom_toTopOf="@+id/time"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,30 +23,100 @@
 
     <TextView
         android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="32dp"
+        android:layout_height="19dp"
         android:layout_marginBottom="70dp"
         android:layout_marginEnd="275dp"
-        android:layout_marginStart="53dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="70dp"
         android:text="Time"
         app:layout_constraintBottom_toTopOf="@+id/people"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date" />
+        app:layout_constraintTop_toBottomOf="@+id/enterDate" />
 
     <TextView
         android:id="@+id/people"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="43dp"
+        android:layout_height="19dp"
         android:layout_marginBottom="200dp"
         android:layout_marginEnd="264dp"
-        android:layout_marginStart="53dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="70dp"
         android:text="People"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time" />
+
+    <TextView
+        android:id="@+id/makeReservation"
+        android:layout_width="119dp"
+        android:layout_height="19dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="70dp"
+        android:text="Make a reservation"
+        app:layout_constraintBottom_toTopOf="@+id/enterDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/enterDate"
+        android:layout_width="217dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="53dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="mm/dd/yy "
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/enterTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/makeReservation" />
+
+    <EditText
+        android:id="@+id/enterTime"
+        android:layout_width="217dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="53dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginTop="53dp"
+        android:ems="10"
+        android:hint="hr:min am/pm"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/enterPeople"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterDate" />
+
+    <EditText
+        android:id="@+id/enterPeople"
+        android:layout_width="217dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="240dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginTop="53dp"
+        android:ems="10"
+        android:hint="number of people"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterTime" />
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="57dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="57dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterPeople" />
 
 </android.support.constraint.ConstraintLayout>
