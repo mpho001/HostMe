@@ -17,8 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Messaging extends AppCompatActivity implements View.OnClickListener {
-    Restaurant_Search here = new Restaurant_Search();
-    CharSequence restName = here.name;
+//    Restaurant_Search here = new Restaurant_Search();
+//    CharSequence restName = here.name;
 
     EditText phNumTxt;
     EditText msgTxt;
@@ -50,14 +50,15 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
         intentFilter = new IntentFilter();
         intentFilter.addAction("SMS_RECEIVED_ACTION");
 
-        phNumTxt = (findViewById(R.id.phoneNumber));
+        // phNumTxt = (findViewById(R.id.phoneNumber));
         msgTxt = findViewById(R.id.body);
         findViewById(R.id.send).setOnClickListener(this);
 
         // Uncomment when this is linked to the restaurant page
         // When you message the restaurant, add that to the list of restaurants that have been messaged
-//        TextView displayRestName = findViewById(R.id.restaurantName);
-//        displayRestName.setText(restName);
+        TextView displayRestName = findViewById(R.id.restaurantName);
+        displayRestName.setText(Restaurant_Search.name);
+        // displayRestName.setText(restName);
 
         // SMS still works on APIs >= 23
 
@@ -102,7 +103,8 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.send:
-                String phNum = phNumTxt.getText().toString();
+                // String phNum = phNumTxt.getText().toString();
+                String phNum = "2092765222";
                 String msg   = msgTxt.getText().toString();
                 Toast.makeText(getApplicationContext(),
                         "Pressed Send", Toast.LENGTH_SHORT).show();
@@ -121,9 +123,9 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
 
     }
 
-    public void set() {
-
-    }
+//    public void set() {
+//
+//    }
 
     protected void sendMsg(String num, String msg) {
         String SENT = "Message Sent";

@@ -1,10 +1,8 @@
 package com.example.melonderr.hostme;
 
-import android.support.v7.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.content.Intent;
-import android.view.View;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -15,7 +13,7 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 public class Restaurant_Search extends AppCompatActivity {
 
     int PLACE_PICKER_REQUEST = 1;
-    public CharSequence name;
+    public static CharSequence name;
     public CharSequence phone;
     public CharSequence rating;
 
