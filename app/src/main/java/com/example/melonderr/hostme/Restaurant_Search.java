@@ -49,8 +49,8 @@ public class Restaurant_Search extends AppCompatActivity {
             startActivity(intent);
 
             //notification saying restaurant name
-            String toastMsg = String.format("Place: %s", name);
-            Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
+            // String toastMsg = String.format("Place: %s", name);
+            // Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
         }
     }
 }
