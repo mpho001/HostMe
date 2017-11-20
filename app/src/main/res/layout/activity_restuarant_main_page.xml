@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.melonderr.hostme.RestuarantMainPage">
+
+    <TextView
+        android:id="@+id/restaurantName2"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="monospace"
+        android:text="Restaurant Name"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintBottom_toTopOf="@+id/userRating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/reserve"
@@ -66,25 +85,13 @@
         android:layout_marginStart="57dp"
         android:layout_marginTop="123dp"
         android:ems="10"
-        android:inputType="numberDecimal"
         android:hint="Rating from users"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/reserve"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/rating"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/restaurantName"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginBottom="45dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="35dp"
-        android:hint="Name of the restaurant"
-        app:layout_constraintBottom_toTopOf="@+id/rating"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
