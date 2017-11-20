@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements
     DatabaseHelper myDb;
     private EditText login_email = null;
     private EditText login_password = null;
-
-    //------------------------------------------------------
+    public static String LoggedUser;
+         //------------------------------------------------------
     private GoogleApiClient mGoogleApiClient;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "SignInActivity";
@@ -237,8 +237,7 @@ public class MainActivity extends AppCompatActivity implements
                      {
                          if(res.getString(5).equals(login_password.getText().toString()))
                          {
-//                             final Global mApp = ((Global) getApplicationContext());
-//                             mApp.setGlobalVarValue(login_email.getText().toString());
+                             LoggedUser = login_email.getText().toString();
                              Intent i = new Intent(MainActivity.this, User_Main_Page.class);
                              startActivity(i);
 //                                 Toast.makeText(MainActivity.this,"Login Successful",Toast.LENGTH_LONG).show();

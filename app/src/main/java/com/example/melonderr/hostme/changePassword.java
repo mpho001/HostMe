@@ -19,6 +19,7 @@ public class changePassword extends AppCompatActivity {
     private EditText newPass = null;
     private EditText verifyPass = null;
     DatabaseHelper myDb;
+    private String CurrentUser = MainActivity.LoggedUser;
     private Button _change = null;
 
     @Override
@@ -47,9 +48,7 @@ public class changePassword extends AppCompatActivity {
                 else {
                     Cursor res = myDb.getAllData();
                     while (res.moveToNext()) {
-
-//                    if old != oldDB error: Enter current password
-                        if (res.getString(5).equals(oldPass.getText().toString())) {
+                        if (res.getString(4).equals(CurrentUser) &&res.getString(5).equals(oldPass.getText().toString())) {
 
 //                            if new == old error: New and Current password is same
                             if (newPass.getText().toString().equals(oldPass.getText().toString())) {
@@ -59,7 +58,7 @@ public class changePassword extends AppCompatActivity {
                                 if (!newPass.getText().toString().equals(verifyPass.getText().toString())) {
                                     verifyPass.setError("Passwords don't match");
                                 } else {
-                                    if (myDb.updateData("", "", "", "",
+                                    if (myDb.updateData(res.getString(0), "", "", "",
                                             "", newPass.getText().toString(), oldPass.getText().toString(), "",
                                             "", "", "", "")) {
                                         Toast.makeText(getApplicationContext(),
@@ -70,7 +69,7 @@ public class changePassword extends AppCompatActivity {
                                 }
                             }
                         }
-                        else {
+                        else if(res.getString(4).equals(CurrentUser) && !res.getString(5).equals(oldPass.getText().toString())) {
                             oldPass.setError("Enter current password");
                         }
                     }

@@ -28,6 +28,7 @@ public class Registration extends AppCompatActivity {
     Button btnviewUpdate;
     Button goBack;
     private Spinner SecurityQuestion;
+    String LoggedInUer = MainActivity.LoggedUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
