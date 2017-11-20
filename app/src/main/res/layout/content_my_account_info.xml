@@ -10,8 +10,11 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
         android:text="Account setting" />
 
     <Button
@@ -20,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView6"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="45dp"
         android:text="Change password" />
 
     <Button
@@ -29,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/changePassword"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="45dp"
         android:text="Delete Account" />
 
     <Button
@@ -38,6 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/deleteAccount"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="45dp"
         android:text="Sign Out" />
 </RelativeLayout>

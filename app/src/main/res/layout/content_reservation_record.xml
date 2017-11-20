@@ -10,11 +10,11 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
         android:text="Reservation Record" />
 
     <Button
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView4"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="54dp"
         android:text="Current Reservation" />
 
     <Button
@@ -32,6 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/currentReservation"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="47dp"
         android:text="Past Reservation" />
 </RelativeLayout>

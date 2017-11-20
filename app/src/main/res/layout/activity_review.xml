@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.example.melonderr.hostme.Review">
 
     <TextView
@@ -25,44 +26,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="444dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="250dp"
         android:text="Review"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/userReview"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.698" />
 
     <EditText
         android:id="@+id/userReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="437dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginBottom="444dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="250dp"
         android:ems="10"
         android:hint="Write Review"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.312"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/review"
-        app:layout_constraintVertical_bias="0.521" />
+        app:layout_constraintVertical_bias="0.748" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="303dp"
-        android:layout_marginEnd="316dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="101dp"
+        android:layout_marginBottom="300dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginTop="81dp"
         android:text="Rate"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/userRating"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <EditText
@@ -70,16 +69,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="290dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="22dp"
+        android:layout_marginEnd="36dp"
         android:layout_marginTop="81dp"
         android:ems="10"
         android:hint="Rate (1-5)"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/userReview" />
+        app:layout_constraintTop_toBottomOf="@+id/userReview"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/restaurantRating"
