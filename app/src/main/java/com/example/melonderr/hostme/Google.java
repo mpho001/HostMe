@@ -68,6 +68,7 @@ public class Google extends AppCompatActivity implements
         }
         else if (option == 2) {
             signOut();
+            loggedIn = 0;
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
@@ -179,6 +180,8 @@ public class Google extends AppCompatActivity implements
                 if (flag != 1) {
                     Toast.makeText(getApplicationContext(),
                             "Account does not exist!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, User_Main_Page.class);
+                    startActivity(intent);
                 }
             }
         }
@@ -187,6 +190,8 @@ public class Google extends AppCompatActivity implements
             Intent intent = new Intent(this, Registration.class);
             startActivity(intent);
         }
+
+        mGoogleApiClient.clearDefaultAccountAndReconnect();
 
 //        Intent intent = new Intent(this, Messaging.class);
 //        startActivity(intent);
