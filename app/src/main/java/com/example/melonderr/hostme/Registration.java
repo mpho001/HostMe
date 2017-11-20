@@ -71,9 +71,11 @@ public class Registration extends AppCompatActivity {
         btnSignupGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Google google = new Google();
+                google.option(1);
+                google.setPage(2);
                 Intent intent = new Intent(getApplicationContext(), Google.class);
                 startActivity(intent);
-
             }
         });
 

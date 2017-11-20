@@ -178,7 +178,12 @@ public class MainActivity extends AppCompatActivity implements
             case R.id.sign_in_button:
                 Toast.makeText(getApplicationContext(),
                         "Sign In", Toast.LENGTH_SHORT).show();
-                signIn();
+                // signIn();
+                Google google = new Google();
+                google.option(1);
+                google.setPage(1);
+                Intent intent = new Intent(getApplicationContext(), Google.class);
+                startActivity(intent);
                 break;
 //            case R.id.sign_out_button:
 //                Toast.makeText(getApplicationContext(),

@@ -1,6 +1,7 @@
 package com.example.melonderr.hostme;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,9 @@ public class Google extends AppCompatActivity implements
     private GoogleApiClient mGoogleApiClient;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "SignInActivity";
+    private static int option;
+    private static int page;
+    DatabaseHelper myDb;
     // private TextView mStatusTextView;
 
     public static String googleEmail;
@@ -40,6 +44,8 @@ public class Google extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google);
 
+        myDb = new DatabaseHelper(this);
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -50,17 +56,41 @@ public class Google extends AppCompatActivity implements
                 .build();
 
 
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
+        // findViewById(R.id.sign_in_button).setOnClickListener(this);
+
+//        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+//        startActivityForResult(signInIntent, RC_SIGN_IN);
+
+        // if option 1, do sign in
+        // if option 2, do sign out
+        if (option == 1) {
+            signIn();
+        }
+        else if (option == 2) {
+            signOut();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    public static void option(int op) {
+        option = op;
+    }
+
+    public static void setPage(int pg) {
+        // pg 1 == from login page
+        // pg 2 == from registration page
+        page = pg;
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.sign_in_button:
-                Toast.makeText(getApplicationContext(),
-                        "Sign In", Toast.LENGTH_SHORT).show();
-                signIn();
-                break;
+//            case R.id.sign_in_button:
+//                Toast.makeText(getApplicationContext(),
+//                        "Sign In", Toast.LENGTH_SHORT).show();
+//                signIn();
+//                break;
         }
     }
 
@@ -114,11 +144,6 @@ public class Google extends AppCompatActivity implements
             // Signed out, show unauthenticated UI.
             updateUI(false);
         }
-        Intent intent = new Intent(this, Registration.class);
-        startActivity(intent);
-
-//        Intent intent = new Intent(this, Messaging.class);
-//        startActivity(intent);
 
         // trying to get user information
         // GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
@@ -133,6 +158,40 @@ public class Google extends AppCompatActivity implements
         else {
             Toast.makeText(this, "acct was null", Toast.LENGTH_SHORT).show();
         }
+
+        if (page == 1) {
+            int flag = 0;
+            Cursor res = myDb.getAllData();
+            if(res.getCount() == 0)
+            {
+                Toast.makeText(getApplicationContext(),
+                        "Failure!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            else {
+                while (res.moveToNext()) {
+                    if(res.getString(4).equals(googleEmail)) {
+                        Intent intent = new Intent(this, User_Main_Page.class);
+                        startActivity(intent);
+                        flag = 1;
+                    }
+                }
+                if (flag != 1) {
+                    Toast.makeText(getApplicationContext(),
+                            "Account does not exist!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+        else if (page == 2) {
+            Intent intent = new Intent(this, Registration.class);
+            startActivity(intent);
+        }
+
+//        Intent intent = new Intent(this, Messaging.class);
+//        startActivity(intent);
+
+
 
 //        Toast.makeText(getApplicationContext(),
 //                googleEmail, Toast.LENGTH_SHORT).show();

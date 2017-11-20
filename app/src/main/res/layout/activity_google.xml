@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.melonderr.hostme.Google">
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:layout_toStartOf="@+id/signin_button"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="247dp" />
+    <!--<com.google.android.gms.common.SignInButton-->
+        <!--android:id="@+id/sign_in_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/password"-->
+        <!--android:layout_toStartOf="@+id/signin_button"-->
+        <!--tools:layout_editor_absoluteX="0dp"-->
+        <!--tools:layout_editor_absoluteY="247dp" />-->
 
 </android.support.constraint.ConstraintLayout>

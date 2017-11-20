@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class my_account_info extends AppCompatActivity {
     Button sgnOut;
@@ -34,6 +35,13 @@ public class my_account_info extends AppCompatActivity {
         sgnOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Google.loggedIn == 1) {
+                    Toast.makeText(getApplicationContext(), "signed out from Google", Toast.LENGTH_SHORT).show();
+                    Google google = new Google();
+                    google.option(2);
+                    Intent intent = new Intent(getApplicationContext(), Google.class);
+                    startActivity(intent);
+                }
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
