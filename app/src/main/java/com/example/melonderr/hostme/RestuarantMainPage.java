@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class RestuarantMainPage extends AppCompatActivity {
@@ -16,6 +17,9 @@ public class RestuarantMainPage extends AppCompatActivity {
 
         TextView displayRestaurantName = findViewById(R.id.restaurantName2);
         displayRestaurantName.setText(Restaurant_Search.name);
+
+        TextView displayRestaurantRating = findViewById(R.id.avg_rating);
+        displayRestaurantRating.setText(Restaurant_Search.mytext);
 
         Button reviewButton = findViewById(R.id.reviews);
         reviewButton.setOnClickListener(new View.OnClickListener() {

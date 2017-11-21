@@ -11,22 +11,17 @@
     <TextView
         android:id="@+id/restaurantName2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="106dp"
         android:layout_centerHorizontal="true"
-        android:fontFamily="serif-monospace"
         android:text="Restaurant Name"
         android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color"
-        android:textSize="24sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textSize="30sp"
         android:textStyle="bold"
-        android:typeface="serif"
-        app:layout_constraintBottom_toTopOf="@+id/userRating"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/reserve"
@@ -70,30 +65,30 @@
 
     <TextView
         android:id="@+id/rating"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:layout_width="136dp"
+        android:layout_height="36dp"
         android:layout_marginBottom="20dp"
         android:layout_marginStart="16dp"
-        android:text="Rating"
+        android:text="Average Rating"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/reserve"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/userRating"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_marginBottom="17dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="153dp"
+    <TextView
+        android:id="@+id/avg_rating"
+        android:layout_width="123dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="188dp"
         android:ems="10"
-        android:hint="Rating from users"
         android:inputType="numberDecimal"
+        android:text="API_rating"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/reserve"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/rating"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

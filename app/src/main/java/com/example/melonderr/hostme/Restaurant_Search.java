@@ -15,8 +15,8 @@ public class Restaurant_Search extends AppCompatActivity {
     int PLACE_PICKER_REQUEST = 1;
     public static CharSequence name;
     public CharSequence phone;
-    public float rating;
-    String mytext;
+    public static float rating;
+    public static String mytext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class Restaurant_Search extends AppCompatActivity {
             name = place.getName();
             phone = place.getPhoneNumber();
             rating = place.getRating();
+            mytext = Float.toString(rating);
 
             //create a restaurant page for chosen place
             Intent intent = new Intent(this, RestuarantMainPage.class);
