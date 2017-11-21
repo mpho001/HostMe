@@ -45,6 +45,7 @@
         android:text="Message"
         app:layout_constraintBottom_toTopOf="@+id/reviews"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reserve" />
 
@@ -66,10 +67,10 @@
     <TextView
         android:id="@+id/rating"
         android:layout_width="136dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="16dp"
-        android:text="Average Rating"
+        android:layout_height="31dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="112dp"
+        android:text="Average Rating:"
         android:textColor="@color/cast_expanded_controller_background_color"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -78,10 +79,10 @@
 
     <TextView
         android:id="@+id/avg_rating"
-        android:layout_width="123dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="188dp"
+        android:layout_width="113dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="46dp"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="API_rating"
@@ -89,6 +90,6 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/reserve"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
