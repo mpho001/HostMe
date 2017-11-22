@@ -65,45 +65,101 @@
 
     <EditText
         android:id="@+id/enterDate"
+        style="@android:style/Widget.DatePicker"
         android:layout_width="230dp"
         android:layout_height="46dp"
         android:layout_marginBottom="53dp"
         android:layout_marginEnd="26dp"
         android:layout_marginTop="60dp"
         android:ems="10"
-        android:hint="mm/dd/yy "
-        android:inputType="date"
+        android:hint="mm/dd/yy"
+        android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/enterTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/makeReservation" />
 
     <EditText
         android:id="@+id/enterTime"
-        android:layout_width="230dp"
+        android:layout_width="75dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="53dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
-        android:hint="hr:min am/pm"
-        android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/enterPeople"
+        android:hint="hr"
+        android:inputType="number"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterDate" />
 
     <EditText
-        android:id="@+id/enterPeople"
-        android:layout_width="230dp"
+        android:id="@+id/enterMin"
+        android:layout_width="77dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="240dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
-        android:hint="number of people"
+        android:hint="min"
+
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/enterTime"
+        app:layout_constraintTop_toBottomOf="@+id/enterDate" />
+    <!--app:layout_constraintBottom_toTopOf="@+id/enterPeople"-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/enterPeople"-->
+    <!--android:layout_width="230dp"-->
+    <!--android:layout_height="46dp"-->
+    <!--android:layout_marginBottom="240dp"-->
+    <!--android:layout_marginEnd="26dp"-->
+    <!--android:layout_marginTop="53dp"-->
+    <!--android:ems="10"-->
+    <!--android:hint="number of people"-->
+    <!--android:inputType="textEmailAddress|number"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/enterTime" />-->
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterTime" />
+
+        app:layout_constraintLeft_toRightOf="@+id/enterMin"
+        app:layout_constraintTop_toBottomOf="@+id/enterDate">
+
+        <RadioButton
+            android:id="@+id/AM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+
+            android:checked="true"
+            android:text="AM"
+            app:layout_constraintBottom_toTopOf="@+id/PM"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/enterMin" />
+
+        <RadioButton
+            android:id="@+id/PM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="PM"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/enterMin"
+            tools:layout_editor_absoluteY="267dp" />
+        <!--android:onClick="onRadioButtonClicked"-->
+        <!--</TableRow>-->
+    </RadioGroup>
 
     <Button
         android:id="@+id/ok"
@@ -117,6 +173,48 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterPeople" />
+        app:layout_constraintTop_toBottomOf="@+id/textPeople" />
+    <!--============================================================================-->
+    <!--<TextView-->
+    <!--android:id="@+id/textSalami"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Salami"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/minus9"-->
+    <!--tools:layout_editor_absoluteX="0dp" />-->
+
+    <TextView
+        android:id="@+id/textPeople"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:textSize = "20sp"
+        android:inputType="none"
+        android:visibility="visible"
+        app:layout_constraintLeft_toRightOf="@+id/minus10"
+        app:layout_constraintTop_toBottomOf="@+id/enterTime" />
+
+    <Button
+        android:id="@+id/minus10"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="175dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="56dp"
+        android:text="-"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/people"
+        app:layout_constraintTop_toBottomOf="@+id/enterTime" />
+
+    <Button
+        android:id="@+id/plus10"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
+        android:text="+"
+        app:layout_constraintLeft_toRightOf="@+id/textPeople"
+        app:layout_constraintTop_toBottomOf="@+id/enterTime" />
+<!--<TableRow>-->
 
 </android.support.constraint.ConstraintLayout>
