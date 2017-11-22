@@ -69,6 +69,17 @@ public class Registration extends AppCompatActivity {
             findViewById(R.id.Security_Questions).setVisibility(View.GONE);
         }
 
+        else if (Google.loggedIn == 0) {
+            editName.setText("");
+            editSurname.setText("");
+            editEmail.setText("");
+            findViewById(R.id.signUpWithGoogle).setVisibility(View.VISIBLE);
+            findViewById(R.id.Password).setVisibility(View.VISIBLE);
+            findViewById(R.id.ConfirmPassword).setVisibility(View.VISIBLE);
+            findViewById(R.id.Security_Answer).setVisibility(View.VISIBLE);
+            findViewById(R.id.Security_Questions).setVisibility(View.VISIBLE);
+        }
+
         btnSignupGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

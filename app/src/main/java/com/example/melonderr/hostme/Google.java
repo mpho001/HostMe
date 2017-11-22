@@ -158,37 +158,57 @@ public class Google extends AppCompatActivity implements
         }
         else {
             Toast.makeText(this, "acct was null", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
 
-        if (page == 1) {
-            int flag = 0;
-            Cursor res = myDb.getAllData();
-            if(res.getCount() == 0)
-            {
-                Toast.makeText(getApplicationContext(),
-                        "Failure!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            else {
-                while (res.moveToNext()) {
-                    if(res.getString(4).equals(googleEmail)) {
-                        Intent intent = new Intent(this, User_Main_Page.class);
-                        startActivity(intent);
-                        flag = 1;
-                    }
-                }
-                if (flag != 1) {
-                    Toast.makeText(getApplicationContext(),
-                            "Account does not exist!", Toast.LENGTH_SHORT).show();
+        int flag = 0;
+        Cursor res = myDb.getAllData();
+        if(res.getCount() == 0)
+        {
+            Toast.makeText(getApplicationContext(),
+                    "Failure to access database!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            while (res.moveToNext()) {
+                if(res.getString(4).equals(googleEmail)) {
                     Intent intent = new Intent(this, User_Main_Page.class);
                     startActivity(intent);
+                    flag = 1;
                 }
+            }
+//            if (flag != 1) {
+//                Toast.makeText(getApplicationContext(),
+//                        "Account does not exist!", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(this, MainActivity.class);
+//                startActivity(intent);
+//            }
+        }
+
+        // page 1 is coming from login page
+        if (page == 1) {
+            if (flag != 1) {
+                    Toast.makeText(getApplicationContext(),
+                            "Account does not exist!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
             }
         }
 
+        // page 2 is coming from registration page
         else if (page == 2) {
-            Intent intent = new Intent(this, Registration.class);
-            startActivity(intent);
+            if (flag == 1) {
+                // account already exists, so can't make a new account with an existing email
+                Toast.makeText(getApplicationContext(),
+                        "Account already exists!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }
+            else {
+                Intent intent = new Intent(this, Registration.class);
+                startActivity(intent);
+            }
         }
 
         mGoogleApiClient.clearDefaultAccountAndReconnect();

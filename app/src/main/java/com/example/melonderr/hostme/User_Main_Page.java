@@ -81,6 +81,15 @@ public class User_Main_Page extends Activity {
                 startActivity(i);
             }
         });
+
+        Button messagesButton = findViewById(R.id.message);
+        messagesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), DisplayMessages.class);
+                startActivity(i);
+            }
+        });
     }
 
 //    GridView grid;
