@@ -94,7 +94,8 @@
         <activity android:name=".pastReservation" />
         <activity android:name=".Google" />
         <activity android:name=".Reserve" />
-        <activity android:name=".Review"></activity>
+        <activity android:name=".Review" />
+        <activity android:name=".DisplayMessages"></activity>
     </application>
 
 </manifest>

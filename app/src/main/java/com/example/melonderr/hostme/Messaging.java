@@ -16,8 +16,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Vector;
+
 public class Messaging extends AppCompatActivity implements View.OnClickListener {
     private static int option = 0;
+    public static Vector<String> messages = new Vector(0);
+    // public static Vector<String> messages;
 
 //    Restaurant_Search here = new Restaurant_Search();
 //    CharSequence restName = here.name;
@@ -60,6 +64,8 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
         // When you message the restaurant, add that to the list of restaurants that have been messaged
         TextView displayRestName = findViewById(R.id.restaurantName);
         displayRestName.setText(Restaurant_Search.name);
+        String MESSAGE = Restaurant_Search.name.toString();
+        messages.add(MESSAGE);
         // displayRestName.setText(restName);
 
         // SMS still works on APIs >= 23
@@ -76,6 +82,7 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
             // then once the user has clicked send, send the user back to the restaurant main page
             TextView confirmMsg = findViewById(R.id.confirm);
             confirmMsg.setVisibility(View.VISIBLE);
+            // msgTxt.setText(Reserve.msg);
         }
 
     }
@@ -124,6 +131,7 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
                 String msg = "";
                 if (option == 1) {
                     // then assign the message from reservation
+                    // msg = Reserve.msg;
                 }
                 else {
                     // get the message from user input
