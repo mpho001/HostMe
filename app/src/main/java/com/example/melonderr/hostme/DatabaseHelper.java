@@ -10,159 +10,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 
-/**
- * Created by japneetkaur on 11/5/17.
- * Edit by Judy on 11/9/17
- */
 
-//public class DatabaseHelper extends SQLiteOpenHelper {
-//    public static final String DATABASE_NAME = "user.db";
-//    public static final String TABLE_NAME = "user_info";
-//    public static final String Col_ID = "id";
-//    public static final String Col_1 = "FIRST_NAME";
-//    public static final String Col_2 = "LAST_NAME";
-//    public static final String Col_3 = "PHONE_NUMBER";
-//    public static final String Col_4 = "EMAIL";
-////    public static final String Col_5 = "RESERVATIONS";
-//    public static final String Col_5 = "PASSWORD";
-//    public static final String Col_6 = "OLD_PASSWORD";
-//    public static final String Col_7 = "REVIEWS";
-//    public static final String Col_8 = "MESSAGES";
-//    public static final String Col_9 = "RESERVATIONS";
-//    public static final String Col_10 = "SECURITY_QUESTION_1";
-//    public static final String Col_11 = "SECURITY_ANSWER_1";
-//    public static final String Col_12 = "SECURITY_QUESTION_2";
-//    public static final String Col_13 = "SECURITY_ANSWER_2";
-//    public static final String Col_14 = "SECURITY_QUESTION_3";
-//    public static final String Col_15 = "SECURITY_ANSWER_3";
-//
-//    public DatabaseHelper(Context context) {
-//        super(context, DATABASE_NAME, null, 1
-//        );
-//    }
-//    /*
-//    onCreate will assign variable type that will be passed in the database.
-//     */
-//    @Override
-//    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-//        sqLiteDatabase.execSQL(
-//                "create table contacts " +
-//                        "(id integer primary key, FIRST_NAME text, LAST_NAME text, PHONE_NUMBER text, " +
-//                                "EMAIL text, PASSWORD text, OLD_PASSWORD text, REVIEWS text, MESSAGES  text,  RESERVATIONS  text, SECURITY_QUESTION_1  text, " +
-//                                " SECURITY_ANSWER_1  text, SECURITY_QUESTION_2 text, SECURITY_ANSWER_2 text, SECURITY_QUESTION_3 text, SECURITY_ANSWER_3 text)");
-//
-//
-//    }
-//
-//    @Override
-//    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-//        /*
-//        This function is if we were to upgrade/update the app and changed anything for the database,
-//        then the function will check if the old version matches new version
-//
-//         */
-//    }
-//
-//    public boolean insertContact ( String FIRST_NAME, String LAST_NAME, String PHONE_NUMBER, String EMAIL, String PASSWORD, String OLD_PASSWORD, String REVIEWS, String MESSAGES
-//                                      , String RESERVATIONS, String SECURITY_QUESTION_1, String SECURITY_ANSWER_1, String SECURITY_QUESTION_2, String SECURITY_ANSWER_2
-//                                      , String SECURITY_QUESTION_3, String SECURITY_ANSWER_3){
-//
-//        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put("FIRST_NAME", FIRST_NAME);
-//        contentValues.put("LAST_NAME", LAST_NAME);
-//        contentValues.put("PHONE_NUMBER", PHONE_NUMBER);
-//        contentValues.put("EMAIL", EMAIL);
-//        contentValues.put("PASSWORD",PASSWORD );
-//        contentValues.put("OLD_PASSWORD",OLD_PASSWORD );
-//        contentValues.put("REVIEWS",  REVIEWS );
-//        contentValues.put("MESSAGES",MESSAGES );
-//        contentValues.put("RESERVATIONS",RESERVATIONS );
-//        contentValues.put("SECURITY_QUESTION_1",SECURITY_QUESTION_1 );
-//        contentValues.put("SECURITY_ANSWER_1", SECURITY_ANSWER_1);
-//        contentValues.put("SECURITY_QUESTION_2",SECURITY_QUESTION_2 );
-//        contentValues.put("SECURITY_ANSWER_2",SECURITY_ANSWER_2 );
-//        contentValues.put("SECURITY_QUESTION_3", SECURITY_QUESTION_3);
-//        contentValues.put("SECURITY_ANSWER_3",SECURITY_ANSWER_3 );
-//
-//        sqLiteDatabase.insert("user_info", null,contentValues);
-//        return true;
-//    }
-//    /*
-//    This function will get an user information based on their id.
-//     */
-//    public Cursor getData(int id)
-//    {
-//        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-//        Cursor res = sqLiteDatabase.rawQuery("select * from contacts where id="+id+"", null);
-//        return res;
-//    }
-//
-//    public int numberOfRows(){
-//        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-//        int numRows = (int) DatabaseUtils.queryNumEntries(sqLiteDatabase, TABLE_NAME);
-//        return numRows;
-//    }
-//    /*
-//   this functions updates the existing contact information
-//    Can be used for update account feature
-//     */
-//    public boolean updateContact ( Integer id, String FIRST_NAME, String LAST_NAME, String PHONE_NUMBER, String EMAIL, String PASSWORD, String OLD_PASSWORD, String REVIEWS, String MESSAGES
-//            , String RESERVATIONS, String SECURITY_QUESTION_1, String SECURITY_ANSWER_1, String SECURITY_QUESTION_2, String SECURITY_ANSWER_2
-//            , String SECURITY_QUESTION_3, String SECURITY_ANSWER_3){
-//
-//        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put("FIRST_NAME", FIRST_NAME);
-//        contentValues.put("LAST_NAME", LAST_NAME);
-//        contentValues.put("PHONE_NUMBER", PHONE_NUMBER);
-//        contentValues.put("EMAIL", EMAIL);
-//        contentValues.put("PASSWORD",PASSWORD );
-//        contentValues.put("OLD_PASSWORD",OLD_PASSWORD );
-//        contentValues.put("REVIEWS",  REVIEWS );
-//        contentValues.put("MESSAGES",MESSAGES );
-//        contentValues.put("RESERVATIONS",RESERVATIONS );
-//        contentValues.put("SECURITY_QUESTION_1",SECURITY_QUESTION_1 );
-//        contentValues.put("SECURITY_ANSWER_1", SECURITY_ANSWER_1);
-//        contentValues.put("SECURITY_QUESTION_2",SECURITY_QUESTION_2 );
-//        contentValues.put("SECURITY_ANSWER_2",SECURITY_ANSWER_2 );
-//        contentValues.put("SECURITY_QUESTION_3", SECURITY_QUESTION_3);
-//        contentValues.put("SECURITY_ANSWER_3",SECURITY_ANSWER_3 );
-//
-////        sqLiteDatabase.insert("user_info", null,contentValues);
-//        sqLiteDatabase.update("user_info",  contentValues, "id=?", new String[] {Integer.toString(id)});
-//        return true;
-//    }
-//
-//
-//    /*
-//    deleteContact deletes existing contacts.
-//    Can be used as delete feature
-//     */
-//    public Integer deleteContact (Integer id) {
-//        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-//        return sqLiteDatabase.delete("contacts",
-//                "id = ? ",
-//                new String[] { Integer.toString(id) });
-//    }
-//
-//    public ArrayList<String> getAllUserInfo() {
-//        ArrayList<String> array_list = new ArrayList<String>();
-//
-//        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-//        Cursor res =  sqLiteDatabase.rawQuery( "select * from user_info", null );
-//        res.moveToFirst();
-//
-//        while(!res.isAfterLast()){
-//            array_list.add(res.getString(res.getColumnIndex(Col_1)));
-//            res.moveToNext();
-//        }
-//        return array_list;
-//    }
-
-/**
- * Created by ProgrammingKnowledge on 4/3/2015.
- */
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "users.db";
     public static final String TABLE_NAME = "GENERAL_TABLE";
@@ -183,13 +31,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //    public static final String COL_15 = "SECURITY_ANSWER2";
 //    public static final String COL_16 = "SECURITY_ANSWER3";
 
-    public static final String TABLE_NAME_2 = "RESERVATION_TABLE";
-    public static final String RCOL_1 = "ID";
-    public static final String RCOL_2 = "FIRST_NAME";
-    public static final String RCOL_3 = "LAST_NAME";
-    public static final String RCOL_4 = "PHONE_NUMBER";
-    public static final String RCOL_5 = "RESTAURANT_NAME";
-    public static final String RCOL_6 = "TIME_OF_RESERVATION";
+//    public static final String TABLE_NAME_2 = "RESERVATION_TABLE";
+//    public static final String RCOL_1 = "ID";
+//    public static final String RCOL_2 = "FIRST_NAME";
+//    public static final String RCOL_3 = "LAST_NAME";
+//    public static final String RCOL_4 = "PHONE_NUMBER";
+//    public static final String RCOL_5 = "RESTAURANT_NAME";
+//    public static final String RCOL_6 = "MDY";
+//    public static final String RCOL_7 = "TIME_HR";
+//    public static final String RCOL_8 = "MINUTE";
+//    public static final String RCOL_9 = "AMPM";
+//    public static final String RCOL_10 = "PEOPLE";
 
 
 
@@ -197,20 +49,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, 1);
     }
 
+//    public static final String CREATE_USER()
+//    {
+//        return "CREATE TABLE " +TABLE_NAME +"(" +Fi;
+//    }
+//    public static final String CREATE_RESERVE()
+//    {
+//        return "create table " +
+//    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
+//        db.execSQL(CREATE_USER());
+//        db.execSQL(CREATE_RESERVE());
         db.execSQL("create table " + TABLE_NAME +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,FIRST_NAME TEXT,LAST_NAME TEXT,PHONE_NUMBER TEXT, EMAIL TEXT, PASSWORD TEXT," +
                 "OLD_PASSWORD TEXT, REVIEWS TEXT, MESSAGES TEXT, RESERVATIONS TEXT, SECURITY_QUESTION1 TEXT,SECURITY_ANSWER1 TEXT)");
 
-///*SECURITY_QUESTION2 TEXT, SECURITY_QUESTION3 TEXT,",, SECURITY_ANSWER2 TEXT, SECURITY_ANSWER3 TEXT*/
-        db.execSQL("create table " + TABLE_NAME_2 +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,FIRST_NAME TEXT,LAST_NAME TEXT,PHONE_NUMBER TEXT, RESTAURANT_NAME TEXT," +
-                "TIME_OF_RESERVATION TEXT)");
+/////*SECURITY_QUESTION2 TEXT, SECURITY_QUESTION3 TEXT,",, SECURITY_ANSWER2 TEXT, SECURITY_ANSWER3 TEXT*/
+//        db.execSQL("create table " + TABLE_NAME_2 +"(" + "ID INTEGER PRIMARY KEY AUTOINCREMENT," +"FIRST_NAME TEXT," + "LAST_NAME TEXT,"+"PHONE_NUMBER TEXT,"+"RESTAURANT_NAME TEXT," + "MDY TEXT,"+ "AMPM TEXT,"+ "TIME_HR TEXT,"+"MINUTE TEXT," + "PEOPLE TEXT"+");");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME_2);
+//        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME_2);
         onCreate(db);
     }
 
@@ -294,64 +156,78 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.delete(TABLE_NAME, "ID = ?",new String[] {id});
     }
 
-    public boolean insertDataReservation(String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER,
-                                         String RESTAURANT_NAME,String TIME_OF_RESERVATION ) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(RCOL_2,FIRST_NAME);
-        contentValues.put(RCOL_3,LAST_NAME);
-        contentValues.put(RCOL_4,PHONE_NUMBER);
-        contentValues.put(RCOL_5,RESTAURANT_NAME);
-        contentValues.put(RCOL_6,TIME_OF_RESERVATION);
+//    public boolean insertDataReservation(String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER,
+//                                         String RESTAURANT_NAME,String MDY,String TIME_HR,String MINUTE,String AMPM,String PEOPLE ) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(RCOL_2,FIRST_NAME);
+//        contentValues.put(RCOL_3,LAST_NAME);
+//        contentValues.put(RCOL_4,PHONE_NUMBER);
+//        contentValues.put(RCOL_5,RESTAURANT_NAME);
+//        contentValues.put(RCOL_6,MDY);
+//        contentValues.put(RCOL_7,TIME_HR);
+//        contentValues.put(RCOL_8,MINUTE);
+//        contentValues.put(RCOL_9,AMPM);
+//        contentValues.put(RCOL_10,PEOPLE);
+//
+//        long result2 = db.insert(TABLE_NAME_2,null ,contentValues);
+//        if(result2 == -1)
+//            return false;
+//        else
+//            return true;
+//    }
 
-        long result = db.insert(TABLE_NAME_2,null ,contentValues);
-        if(result == -1)
-            return false;
-        else
-            return true;
-    }
+//    public Cursor getAllDataReservation() {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        Cursor res = db.rawQuery("select * from "+TABLE_NAME_2,null);
+//        return res;
+//    }
+//
+//    public Cursor getUsersReservation(String PHONE_NUMBER){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        //if (PHONE_NUMBER.length() != 0) {
+//        String[] args = new String[1];
+//        args[0] = "%"+PHONE_NUMBER+"%";
+//        //}
+//        Cursor res1 = db.rawQuery("SELECT * FROM " + TABLE_NAME_2 + " WHERE " + RCOL_4 + " LIKE " + args, null);
+//        return res1;
+//
+//    }
+//
+//    public boolean updateDataReservation(String id,String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER,
+//                                         String RESTAURANT_NAME,String MDY,String TIME_HR,String MINUTE,String AMPM,String PEOPLE)
+//    {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(RCOL_1,id);
+//        if(!(FIRST_NAME.equals(""))){
+//            contentValues.put(RCOL_2,FIRST_NAME);}
+//        if(!(LAST_NAME.equals(""))){
+//            contentValues.put(RCOL_3,LAST_NAME);}
+//        if(!(PHONE_NUMBER.equals(""))){
+//            contentValues.put(RCOL_4,PHONE_NUMBER);}
+//        if(!(RESTAURANT_NAME.equals(""))){
+//            contentValues.put(RCOL_5,RESTAURANT_NAME);}
+//        if(!(MDY.equals(""))){
+//            contentValues.put(RCOL_6,MDY);}
+//        if(!(TIME_HR.equals(""))){
+//            contentValues.put(RCOL_7,TIME_HR);}
+//        if(!(MINUTE.equals(""))){
+//            contentValues.put(RCOL_8,MINUTE);}
+//        if(!(AMPM.equals(""))){
+//            contentValues.put(RCOL_9,AMPM);}
+//        if(!(PEOPLE.equals(""))){
+//            contentValues.put(RCOL_10,PEOPLE);}
+////        if(!(TIME_OF_RESERVATION.equals(""))){
+////            contentValues.put(RCOL_6,TIME_OF_RESERVATION);}
+//
+//        db.update(TABLE_NAME_2, contentValues, "ID = ?",new String[] { id });
+//        return true;
+//    }
 
-    public Cursor getAllDataReservation() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+TABLE_NAME_2,null);
-        return res;
-    }
-
-    public Cursor getUsersReservation(String PHONE_NUMBER){
-        SQLiteDatabase db = this.getWritableDatabase();
-        //if (PHONE_NUMBER.length() != 0) {
-        String[] args = new String[1];
-        args[0] = "%"+PHONE_NUMBER+"%";
-        //}
-        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_NAME_2 + " WHERE " + RCOL_4 + " LIKE " + args, null);
-        return res;
-
-    }
-
-    public boolean updateDataReservation(String id,String FIRST_NAME,String LAST_NAME,
-                                         String PHONE_NUMBER,String RESTAURANT_NAME,String TIME_OF_RESERVATION)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(RCOL_1,id);
-        if(!(FIRST_NAME.equals(""))){
-            contentValues.put(RCOL_2,FIRST_NAME);}
-        if(!(LAST_NAME.equals(""))){
-            contentValues.put(RCOL_3,LAST_NAME);}
-        if(!(PHONE_NUMBER.equals(""))){
-            contentValues.put(RCOL_4,PHONE_NUMBER);}
-        if(!(RESTAURANT_NAME.equals(""))){
-            contentValues.put(RCOL_5,RESTAURANT_NAME);}
-        if(!(TIME_OF_RESERVATION.equals(""))){
-            contentValues.put(RCOL_6,TIME_OF_RESERVATION);}
-
-        db.update(TABLE_NAME_2, contentValues, "ID = ?",new String[] { id });
-        return true;
-    }
-
-    public Integer deleteDataReservation (String id) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME_2, "ID = ?",new String[] {id});
+//    public Integer deleteDataReservation (String id) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        return db.delete(TABLE_NAME_2, "ID = ?",new String[] {id});
     }
 //    public String getSingleEntry(String userName)
 //    {
@@ -366,6 +242,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        cursor.close();
 //        return password;
 //    }
-}
+//}
 
 
