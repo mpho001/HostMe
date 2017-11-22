@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/body"
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
@@ -17,7 +17,11 @@
         android:layout_marginStart="21dp"
         android:ems="10"
         android:hint="Message"
-        android:inputType="text" />
+        android:scrollHorizontally="false"
+        android:maxLines ="4"
+        android:maxLength ="2000"
+
+        android:inputType="textCapSentences|textMultiLine" />
 
     <Button
         android:id="@+id/send"
@@ -59,4 +63,17 @@
         android:layout_marginTop="34dp"
         android:text="Restaurant Name"
         android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/confirm"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/restaurantName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
+        android:visibility="invisible"
+        android:text="Press send once you have confirmed your reservation." />
 </RelativeLayout>

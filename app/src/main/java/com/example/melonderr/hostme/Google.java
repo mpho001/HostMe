@@ -154,7 +154,7 @@ public class Google extends AppCompatActivity implements
             firstName = acct.getGivenName();
             lastName = acct.getFamilyName();
             loggedIn = 1;
-            Toast.makeText(this, googleEmail, Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, googleEmail, Toast.LENGTH_SHORT).show();
         }
         else {
             Toast.makeText(this, "acct was null", Toast.LENGTH_SHORT).show();

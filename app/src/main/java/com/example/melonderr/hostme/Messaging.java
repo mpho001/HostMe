@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Messaging extends AppCompatActivity implements View.OnClickListener {
+    private static int option = 0;
+
 //    Restaurant_Search here = new Restaurant_Search();
 //    CharSequence restName = here.name;
 
@@ -68,6 +70,14 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
         String[] permissions = {android.Manifest.permission.SEND_SMS, android.Manifest.permission.READ_PHONE_STATE};
         ActivityCompat.requestPermissions(this, permissions, allPermissions);
 
+        if (option == 1) {
+            // display message
+            // confirm this is the message that you want to send to the restaurant
+            // then once the user has clicked send, send the user back to the restaurant main page
+            TextView confirmMsg = findViewById(R.id.confirm);
+            confirmMsg.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
@@ -78,15 +88,15 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    Toast.makeText(getApplicationContext(),
-                    " permissions worked", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(),
+//                    " permissions worked", Toast.LENGTH_SHORT).show();
 
                     // permission was granted, yay! Do the
                     // contacts-related task you need to do.
 
                 } else {
                     Toast.makeText(getApplicationContext(),
-                            "failed", Toast.LENGTH_SHORT).show();
+                            "failed to get permissions", Toast.LENGTH_SHORT).show();
 
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
@@ -99,13 +109,27 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
         }
     }
 
+    public void setOption(int op) {
+        option = op;
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.send:
                 // String phNum = phNumTxt.getText().toString();
                 String phNum = "2092765222";
-                String msg   = msgTxt.getText().toString();
+                // String msg   = msgTxt.getText().toString();
+
+                String msg = "";
+                if (option == 1) {
+                    // then assign the message from reservation
+                }
+                else {
+                    // get the message from user input
+                    msg = msgTxt.getText().toString();
+                }
+
                 Toast.makeText(getApplicationContext(),
                         "Pressed Send", Toast.LENGTH_SHORT).show();
                 if (phNum.isEmpty()) {
@@ -118,6 +142,15 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
                 }
                 msgTxt.getText().clear();
                 sendMsg(phNum, msg);
+
+                // if from reservation, take user back to restaurant main page
+                if (option == 1) {
+                    Intent intent = new Intent(this, RestuarantMainPage.class);
+                    startActivity(intent);
+                    // remove the selected option
+                    setOption(0);
+                }
+
                 break;
         }
 

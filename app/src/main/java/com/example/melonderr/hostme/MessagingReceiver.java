@@ -35,7 +35,7 @@ public class MessagingReceiver extends BroadcastReceiver {
             }
 
             // display the message
-            Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
+            // Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
 
             Intent broadcastIntent = new Intent();
             broadcastIntent.setAction("SMS_RECEIVED_ACTION");
