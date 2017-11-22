@@ -1,26 +1,19 @@
 package com.example.melonderr.hostme;
 
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import android.widget.CalendarView;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import android.widget.DatePicker;
 //import android.widg
 
 //import
@@ -41,6 +34,10 @@ public class Reserve extends AppCompatActivity {
      RadioButton radio_light;
      String CurrentUser = MainActivity.LoggedUser;
 
+    // Compile into a message
+    // consists of date + time + number of people
+     public static String msg;
+    // msg = _date + _hr + _min + pplDensity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -379,6 +376,17 @@ public class Reserve extends AppCompatActivity {
 //
 ////                Intent i = new Intent(.this, Reserve.class);
 ////                startActivity(i);
+
+                if (goodtoGo) {
+                    // if good to go, then can safely compile the message and send to message activity
+                    msg = "Date: " + _date.getText().toString() + "\n";
+                    msg += "Time: " + _hr.getText().toString() + ":" + _min.getText().toString() + "\n";
+                    msg += "# of People: " + pplDensity + "\n";
+                    Messaging messaging = new Messaging();
+                    messaging.setOption(1);
+                    Intent intent = new Intent(getApplicationContext(), Messaging.class);
+                    startActivity(intent);
+                }
 
             }
 

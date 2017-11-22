@@ -82,7 +82,7 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
             // then once the user has clicked send, send the user back to the restaurant main page
             TextView confirmMsg = findViewById(R.id.confirm);
             confirmMsg.setVisibility(View.VISIBLE);
-            // msgTxt.setText(Reserve.msg);
+            msgTxt.setText(Reserve.msg);
         }
 
     }
@@ -126,17 +126,17 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
             case R.id.send:
                 // String phNum = phNumTxt.getText().toString();
                 String phNum = "2092765222";
-                // String msg   = msgTxt.getText().toString();
+                String msg   = msgTxt.getText().toString();
 
-                String msg = "";
-                if (option == 1) {
-                    // then assign the message from reservation
-                    // msg = Reserve.msg;
-                }
-                else {
-                    // get the message from user input
-                    msg = msgTxt.getText().toString();
-                }
+//                String msg = "";
+//                if (option == 1) {
+//                    // then assign the message from reservation
+//                     msg = Reserve.msg;
+//                }
+//                else {
+//                    // get the message from user input
+//                    msg = msgTxt.getText().toString();
+//                }
 
                 Toast.makeText(getApplicationContext(),
                         "Pressed Send", Toast.LENGTH_SHORT).show();
