@@ -32,7 +32,7 @@ public class ReserveHelper extends SQLiteOpenHelper {
 ////    public static final String COL_15 = "SECURITY_ANSWER2";
 ////    public static final String COL_16 = "SECURITY_ANSWER3";
 
-    public static final String TABLE_NAME_2 = "RESERVATION_TABLE";
+    public static final String TABLE_NAME = "RESERVATION_TABLE";
     public static final String RCOL_1 = "ID";
     public static final String RCOL_2 = "FIRST_NAME";
     public static final String RCOL_3 = "LAST_NAME";
@@ -43,7 +43,7 @@ public class ReserveHelper extends SQLiteOpenHelper {
     public static final String RCOL_8 = "MINUTE";
     public static final String RCOL_9 = "AMPM";
     public static final String RCOL_10 = "PEOPLE";
-//    public static final String RCOL_11 = "WHATDATE";
+    public static final String RCOL_11 = "WHATDATE";
 //
 
 
@@ -69,13 +69,13 @@ public class ReserveHelper extends SQLiteOpenHelper {
 
 /////*SECURITY_QUESTION2 TEXT, SECURITY_QUESTION3 TEXT,",, SECURITY_ANSWER2 TEXT, SECURITY_ANSWER3 TEXT*/
 //        "MDY TEXT,"+
-                db.execSQL("CREATE TABLE " + TABLE_NAME_2 +"(" + "ID INTEGER PRIMARY KEY AUTOINCREMENT," +"FIRST_NAME TEXT," + "LAST_NAME TEXT,"+"PHONE_NUMBER TEXT,"+"RESTAURANT_NAME TEXT,"+ "TIME_HR TEXT,"+"MINUTE TEXT,"  + "AMPM TEXT,"+ "PEOPLE TEXT,"+"WHATDATE TEXT" +");");//+"WHATDATE TEXT"+");");
+                db.execSQL("CREATE TABLE " + TABLE_NAME +"(" + "ID INTEGER PRIMARY KEY AUTOINCREMENT," +"FIRST_NAME TEXT," + "LAST_NAME TEXT,"+"PHONE_NUMBER TEXT,"+"RESTAURANT_NAME TEXT,"+ "TIME_HR TEXT,"+"MINUTE TEXT,"  + "AMPM TEXT,"+ "PEOPLE TEXT,"+"WHATDATE TEXT" +");");//+"WHATDATE TEXT"+");");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 //        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME_2);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
 
@@ -156,16 +156,16 @@ public class ReserveHelper extends SQLiteOpenHelper {
 
     public Integer deleteData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME_2, "ID = ?",new String[] {id});
+        return db.delete(TABLE_NAME, "ID = ?",new String[] {id});
     }
 
-    public boolean insertDataReservation(String ID,String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER,
+    public boolean insertDataReservation(String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER,
                                          String RESTAURANT_NAME,/*String MDY,*/String TIME_HR,String MINUTE,String WHATDATE,String AMPM,String PEOPLE ) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(RCOL_1,ID);
+//        contentValues.put(RCOL_1,ID);
         contentValues.put(RCOL_2,FIRST_NAME);
         contentValues.put(RCOL_3,LAST_NAME);
         contentValues.put(RCOL_4,PHONE_NUMBER);
@@ -175,10 +175,10 @@ public class ReserveHelper extends SQLiteOpenHelper {
         contentValues.put(RCOL_8,MINUTE);
         contentValues.put(RCOL_9,AMPM);
         contentValues.put(RCOL_10,PEOPLE);
-//        contentValues.put(RCOL_11,WHATDATE);
+        contentValues.put(RCOL_11,WHATDATE);
 
         long result2 = 0;
-             result2 =    db.insert(TABLE_NAME_2,null ,contentValues);
+             result2 =    db.insert(TABLE_NAME,null ,contentValues);
         if(result2 == -1)
             return false;
         else
@@ -187,7 +187,7 @@ public class ReserveHelper extends SQLiteOpenHelper {
 
     public Cursor getAllDataReservation() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+TABLE_NAME_2,null);
+        Cursor res = db.rawQuery("select * from "+TABLE_NAME,null);
         return res;
     }
 
@@ -197,7 +197,7 @@ public class ReserveHelper extends SQLiteOpenHelper {
         String[] args = new String[1];
         args[0] = "%"+PHONE_NUMBER+"%";
         //}
-        Cursor res1 = db.rawQuery("SELECT * FROM " + TABLE_NAME_2 + " WHERE " + RCOL_4 + " LIKE " + args, null);
+        Cursor res1 = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + RCOL_4 + " LIKE " + args, null);
         return res1;
 
     }
@@ -226,18 +226,18 @@ public class ReserveHelper extends SQLiteOpenHelper {
             contentValues.put(RCOL_9,AMPM);}
         if(!(PEOPLE.equals(""))){
             contentValues.put(RCOL_10,PEOPLE);}
-//            if(!(WHATDATE.equals(""))){
-//            contentValues.put(RCOL_11,WHATDATE);}
+        if(!(WHATDATE.equals(""))){
+        contentValues.put(RCOL_11,WHATDATE);}
 //        if(!(TIME_OF_RESERVATION.equals(""))){
 //            contentValues.put(RCOL_6,TIME_OF_RESERVATION);}
 
-        db.update(TABLE_NAME_2, contentValues, "ID = ?",new String[] { id });
+        db.update(TABLE_NAME, contentValues, "ID = ?",new String[] { id });
         return true;
     }
 
     public Integer deleteDataReservation (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME_2, "ID = ?",new String[] {id});
+        return db.delete(TABLE_NAME, "ID = ?",new String[] {id});
     }
 //    public String getSingleEntry(String userName)
 //    {

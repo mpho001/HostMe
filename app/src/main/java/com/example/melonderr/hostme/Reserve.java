@@ -21,13 +21,15 @@ public class Reserve extends AppCompatActivity {
 
     DatabaseHelper myDb;
     ReserveHelper rDb;
-    EditText   _hr,_min,_date;
-    String  _restaurant,customer_first, customer_last , _phone,_light;
+//    public static String[] myArray = ReservationRecord.myArray;
+    public static EditText   _hr,_min,_date;
+    public static String  _restaurant,customer_first, customer_last , _phone,_light,_time ,_ditto= "";
     TextView _ppl;
     Button btnPplSubmit, btnPplMinus, btnPplPlus;
-    int pplDensity=1;
+    public static int pplDensity=1;
     Calendar c = Calendar.getInstance();
     int dateFlag = 0;
+    String _id;
      RadioGroup _radioGroup;
     public static String Phoner;
 
@@ -234,9 +236,22 @@ public class Reserve extends AppCompatActivity {
 //                                break;
                             }
                         }
-                        if((i == 1 || i == 7)  )
+                        if((i == 1 || i == 7|| i == 8 || i == 9)  )
                         {
 //                            Toast.makeText(getApplicationContext(), Integer.toString(tempInt), Toast.LENGTH_SHORT).show();
+
+                            if(tempInt >0 &&i == 7)
+                            {
+                                _date.setError("Too Far From Now");
+                                flag = 1;
+                            }
+                            else if(tempInt > 1 && i == 8 )
+                            {
+                                _date.setError("Too Far From Now");
+                                flag = 1;
+                            }
+                            else
+                        {
                             if(tempInt >= 0 && tempInt <= 9)
                             {}
                             else
@@ -247,6 +262,7 @@ public class Reserve extends AppCompatActivity {
                                 flag = 1;
 //                                break;
                             }
+                        }
                         }
                         if((i == 2 || i == 5) )
                         {
@@ -379,8 +395,9 @@ public class Reserve extends AppCompatActivity {
 
                 if (goodtoGo) {
                     // if good to go, then can safely compile the message and send to message activity
-                    msg = "Date: " + _date.getText().toString() + "\n";
-                    msg += "Time: " + _hr.getText().toString() + ":" + _min.getText().toString() + "\n";
+
+                    msg = "Date: " + _date.getText().toString() + "\n" + "Name: " + customer_first + " "+ customer_last+"\n";
+                    msg += "Time: " + _hr.getText().toString() + ":" + _min.getText().toString() +" "+ radio_light.getText().toString() +"\n";
                     msg += "# of People: " + pplDensity + "\n";
                     Messaging messaging = new Messaging();
                     messaging.setOption(1);
@@ -395,37 +412,22 @@ public class Reserve extends AppCompatActivity {
     }
     public void AddReserve(){
         callInfo();
-        boolean isInserted = false;
-        Phoner = _phone;
-        rDb = new ReserveHelper(this);
-        isInserted = rDb.insertDataReservation("",customer_first,customer_last,_phone,_restaurant,_hr.getText().toString(),_min.getText().toString(),_date.getText().toString(),_light,String.valueOf(pplDensity));
-//        isInserted = rDb.insertDataReservation("","","","","","","","","","");
+//        myArray[0] ="FirstName: " +  customer_first;
+//        myArray[1]="Last Name: " +  customer_last;
+//        myArray[2]="Restaurant Name:" +  _restaurant;
+//        myArray[3] ="Date: " + String.valueOf( _date);
+//        myArray[4] = "Time: " +  _hr + ":" +  _min + " " +  _light;
+//        myArray[5] = "Number of people: " +  pplDensity;
 
-//        Toast.makeText(getApplicationContext(),
-//                _light, Toast.LENGTH_SHORT).show();
-//        Toast.makeText(getApplicationContext(),
-//                _hr.getText().toString(), Toast.LENGTH_SHORT).show();
-//        Toast.makeText(getApplicationContext(),
-//                _min.getText().toString(), Toast.LENGTH_SHORT).show();
-
-        if(isInserted ==true)
-        {
-            Toast.makeText(getApplicationContext(),
-                                "Success", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(),
-                    "Failedfjnsdk", Toast.LENGTH_SHORT).show();
-        }
 
     }
-    protected void callInfo(){
+    public void callInfo(){
         Cursor res = myDb.getAllData();
         while(res.moveToNext())
         {
             if(res.getString(4).equals(CurrentUser) )
             {
+                _id = (res.getString(0));
                 _phone = ( res.getString(3));
 //                Toast.makeText(getApplicationContext(),
 //                        _phone, Toast.LENGTH_SHORT).show();
@@ -445,6 +447,21 @@ public class Reserve extends AppCompatActivity {
 
 //                Toast.makeText(getApplicationContext(),
 //                        "Success", Toast.LENGTH_SHORT).show();
+                boolean isInserted = true;
+//                isInserted = rDb.insertDataReservation(customer_first,customer_last,_phone,_restaurant,_hr.getText().toString(),_min.getText().toString(),_date.getText().toString(),_light,String.valueOf(pplDensity));
+//                if(isInserted ==true)
+//                {
+//                    Toast.makeText(getApplicationContext(),
+//                            "Success", Toast.LENGTH_SHORT).show();
+//                }
+                Phoner = _phone;
+                rDb = new ReserveHelper(this);
+
+//        isInserted = rDb.insertDataReservation("","","","","","","","","");
+//                isInserted = rDb.updateDataReservation(_id,customer_first,customer_last,_phone,_restaurant,_hr.getText().toString(),_min.getText().toString(),_light,_date.getText().toString(),String.valueOf(pplDensity));
+//        isInserted = rDb.updateDataReservation("",customer_first,customer_last,_phone,_restaurant,_hr.getText().toString(),_min.getText().toString(),_date.getText().toString(),_light,String.valueOf(pplDensity));
+            _time = _hr.getText().toString() + ":" + _min.getText().toString() + " " + _light;
+            _ditto = _date.getText().toString();
             }
         }
     }

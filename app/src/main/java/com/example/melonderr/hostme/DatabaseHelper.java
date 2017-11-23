@@ -147,13 +147,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //            contentValues.put(COL_15, SECURITY_ANSWER2);}
 //        if(!(SECURITY_ANSWER3.equals(""))){
 //            contentValues.put(COL_16, SECURITY_ANSWER3);}
-        db.update(TABLE_NAME, contentValues, "ID = ?",new String[] { id });
+        db.update(TABLE_NAME, contentValues, "EMAIL = ?",new String[] { id });
         return true;
     }
 
     public Integer deleteData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, "ID = ?",new String[] {id});
+        return db.delete(TABLE_NAME, "EMAIL = ?",new String[] {id});
     }
 
 //    public boolean insertDataReservation(String FIRST_NAME,String LAST_NAME,String PHONE_NUMBER,
