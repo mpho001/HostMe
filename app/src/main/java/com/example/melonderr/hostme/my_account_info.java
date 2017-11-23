@@ -41,19 +41,23 @@ public class my_account_info extends AppCompatActivity {
         sgnOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Google.loggedIn == 1) {
-                    Toast.makeText(getApplicationContext(), "signed out from Google", Toast.LENGTH_SHORT).show();
-                    Google google = new Google();
-                    google.option(2);
-                    Intent intent = new Intent(getApplicationContext(), Google.class);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),
-                            "Signed Out!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                }
+//                if (Google.loggedIn == 1) {
+//                    Toast.makeText(getApplicationContext(), "signed out from Google", Toast.LENGTH_SHORT).show();
+//                    Google google = new Google();
+//                    google.option(2);
+//                    Intent intent = new Intent(getApplicationContext(), Google.class);
+//                    startActivity(intent);
+//                }
+//                else {
+//                    Toast.makeText(getApplicationContext(),
+//                            "Signed Out!", Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                    startActivity(intent);
+//                }
+                Toast.makeText(getApplicationContext(),
+                        "Signed Out!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 

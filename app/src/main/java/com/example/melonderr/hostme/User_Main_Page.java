@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
 
 
 public class User_Main_Page extends Activity {
+
+    DatabaseHelper myDb;
 
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
@@ -64,6 +67,31 @@ public class User_Main_Page extends Activity {
         });
         */
 
+        // 1 FOR FIRST NAME FROM DATABASE
+        // first, obtain email
+        // then use email to get the user's first name
+//        int flag = 0;
+//        Cursor res = myDb.getAllData();
+//        if(res.getCount() == 0)
+//        {
+//            Toast.makeText(getApplicationContext(),
+//                    "Failure!", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        else {
+//            while (res.moveToNext()) {
+//                if(res.getString(4).equals(googleEmail)) {
+//                    Intent intent = new Intent(this, User_Main_Page.class);
+//                    startActivity(intent);
+//                    flag = 1;
+//                }
+//            }
+//            if (flag != 1) {
+//                Toast.makeText(getApplicationContext(),
+//                        "Account does not exist!", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+
         Button accountBtn = findViewById(R.id.userAccount);
         accountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +118,14 @@ public class User_Main_Page extends Activity {
                 startActivity(i);
             }
         });
+
+        TextView greeting = findViewById(R.id.greeting);
+        if (Google.loggedIn == 1) {
+            greeting.append(Google.firstName);
+        }
+        else {
+            greeting.append(MainActivity.firstName);
+        }
     }
 
 //    GridView grid;

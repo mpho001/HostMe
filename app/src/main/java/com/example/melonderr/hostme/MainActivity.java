@@ -1,29 +1,18 @@
 package com.example.melonderr.hostme;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Button;
-import android.database.Cursor;
 
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 
 
-public class MainActivity extends AppCompatActivity implements
-        GoogleApiClient.OnConnectionFailedListener,
-        View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 //    GoogleApiClient.OnConnectionFailedListener,
 //    View.OnClickListener
@@ -39,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements
     // private TextView mStatusTextView;
     public String googleEmail;
     Button btnSignIn;
+    // public static String loggedEmail;
+    public static String firstName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,123 +45,123 @@ public class MainActivity extends AppCompatActivity implements
         btnSignIn=(Button) findViewById(R.id.signin_button);
 
         //============================================================
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .requestIdToken("549868407518-p84vde9pfruh6lu27kr0rn3f64bu64lk.apps.googleusercontent.com")
-                .build();
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
-
-
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestEmail()
+//                .requestIdToken("549868407518-p84vde9pfruh6lu27kr0rn3f64bu64lk.apps.googleusercontent.com")
+//                .build();
+//
+//        mGoogleApiClient = new GoogleApiClient.Builder(this)
+//                .enableAutoManage(this, this)
+//                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+//                .build();
+//
+//
         findViewById(R.id.sign_in_button).setOnClickListener(this);
 //        findViewById(R.id.sign_out_button).setOnClickListener(this);
     }
 
-    public void signIn() {
-         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-         startActivityForResult(signInIntent, RC_SIGN_IN);
+//    public void signIn() {
+//         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+//         startActivityForResult(signInIntent, RC_SIGN_IN);
+//
+////        Intent intent = new Intent(this, User_Main_Page.class);
+////        startActivity(intent);
+//    }
+//
+//    private void signOut() {
+//        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+//                new ResultCallback<Status>() {
+//                    @Override
+//                    public void onResult(Status status) {
+//                        // [START_EXCLUDE]
+//                        updateUI(false);
+//                        // [END_EXCLUDE]
+//                    }
+//                });
+//    }
 
-//        Intent intent = new Intent(this, User_Main_Page.class);
-//        startActivity(intent);
-    }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+//        if (requestCode == RC_SIGN_IN) {
+//            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+//            handleSignInResult(result);
+//        }
+//
+//    }
 
-    private void signOut() {
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        // [START_EXCLUDE]
-                        updateUI(false);
-                        // [END_EXCLUDE]
-                    }
-                });
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSignInResult(result);
-        }
-
-    }
-
-    private void handleSignInResult(GoogleSignInResult result) {
-        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
-        if (result.isSuccess()) {
-            // Signed in successfully, show authenticated UI.
-            GoogleSignInAccount acct = result.getSignInAccount();
-            // mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
-            updateUI(true);
-        } else {
-            // Signed out, show unauthenticated UI.
-            updateUI(false);
-        }
-//        Intent intent = new Intent(this, User_Main_Page.class);
-//        startActivity(intent);
-
-        // trying to get user information
-        // GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-
-        GoogleSignInAccount acct = result.getSignInAccount();
-        if (acct != null) {
-            googleEmail = acct.getEmail();
-        }
-        else {
-            Toast.makeText(this, "acct was null", Toast.LENGTH_SHORT).show();
-        }
-
-        int flag = 0;
-        Cursor res = myDb.getAllData();
-        if(res.getCount() == 0)
-        {
-            Toast.makeText(getApplicationContext(),
-                    "Failure!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else {
-            while (res.moveToNext()) {
-                if(res.getString(4).equals(googleEmail)) {
-                    Intent intent = new Intent(this, User_Main_Page.class);
-                    startActivity(intent);
-                    flag = 1;
-                }
-            }
-            if (flag != 1) {
-                Toast.makeText(getApplicationContext(),
-                        "Account does not exist!", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-//        Toast.makeText(getApplicationContext(),
-//                googleEmail, Toast.LENGTH_SHORT).show();
-
-        // TODO
-        // if email doesn't exist in database, prompt user that account doesn't exist for app
-        // and also return to main page
-    }
-
-    private void updateUI(boolean signedIn) {
-        if (signedIn) {
-//            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-//            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
-//            findViewById(R.id.email).setVisibility(View.GONE);
-//            findViewById(R.id.password).setVisibility(View.GONE);
-        } else {
-            // mStatusTextView.setText(R.string.signed_out);
-//            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-//            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
-//            findViewById(R.id.email).setVisibility(View.VISIBLE);
-//            findViewById(R.id.password).setVisibility(View.VISIBLE);
-
-        }
-    }
+//    private void handleSignInResult(GoogleSignInResult result) {
+//        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
+//        if (result.isSuccess()) {
+//            // Signed in successfully, show authenticated UI.
+//            GoogleSignInAccount acct = result.getSignInAccount();
+//            // mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
+//            updateUI(true);
+//        } else {
+//            // Signed out, show unauthenticated UI.
+//            updateUI(false);
+//        }
+////        Intent intent = new Intent(this, User_Main_Page.class);
+////        startActivity(intent);
+//
+//        // trying to get user information
+//        // GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+//
+//        GoogleSignInAccount acct = result.getSignInAccount();
+//        if (acct != null) {
+//            googleEmail = acct.getEmail();
+//        }
+//        else {
+//            Toast.makeText(this, "acct was null", Toast.LENGTH_SHORT).show();
+//        }
+//
+//        int flag = 0;
+//        Cursor res = myDb.getAllData();
+//        if(res.getCount() == 0)
+//        {
+//            Toast.makeText(getApplicationContext(),
+//                    "Failure!", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        else {
+//            while (res.moveToNext()) {
+//                if(res.getString(4).equals(googleEmail)) {
+//                    Intent intent = new Intent(this, User_Main_Page.class);
+//                    startActivity(intent);
+//                    flag = 1;
+//                }
+//            }
+//            if (flag != 1) {
+//                Toast.makeText(getApplicationContext(),
+//                        "Account does not exist!", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//
+////        Toast.makeText(getApplicationContext(),
+////                googleEmail, Toast.LENGTH_SHORT).show();
+//
+//        // TODO
+//        // if email doesn't exist in database, prompt user that account doesn't exist for app
+//        // and also return to main page
+//    }
+//
+//    private void updateUI(boolean signedIn) {
+//        if (signedIn) {
+////            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+////            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
+////            findViewById(R.id.email).setVisibility(View.GONE);
+////            findViewById(R.id.password).setVisibility(View.GONE);
+//        } else {
+//            // mStatusTextView.setText(R.string.signed_out);
+////            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
+////            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+////            findViewById(R.id.email).setVisibility(View.VISIBLE);
+////            findViewById(R.id.password).setVisibility(View.VISIBLE);
+//
+//        }
+//    }
 
     @Override
     public void onClick(View view) {
@@ -193,12 +184,12 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
-        // be available.
-        Log.d(TAG, "onConnectionFailed:" + connectionResult);
-    }
+//    @Override
+//    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+//        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
+//        // be available.
+//        Log.d(TAG, "onConnectionFailed:" + connectionResult);
+//    }
 
 
 //    public void userPage(View view) {
@@ -238,8 +229,11 @@ public class MainActivity extends AppCompatActivity implements
                          if(res.getString(5).equals(login_password.getText().toString()))
                          {
                              LoggedUser = login_email.getText().toString();
+                             firstName = res.getString(1);
+                             // Toast.makeText(getApplicationContext(), firstName, Toast.LENGTH_SHORT).show();
                              Intent i = new Intent(MainActivity.this, User_Main_Page.class);
                              startActivity(i);
+                             // loggedEmail = res.getString(4);
 //                                 Toast.makeText(MainActivity.this,"Login Successful",Toast.LENGTH_LONG).show();
                          }
                          else
