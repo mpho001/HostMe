@@ -125,7 +125,7 @@ public class Messaging extends AppCompatActivity implements View.OnClickListener
         switch (view.getId()) {
             case R.id.send:
                 // String phNum = phNumTxt.getText().toString();
-                String phNum = "2092765222";
+                String phNum = "2092985414";
                 String msg   = msgTxt.getText().toString();
 
 //                String msg = "";

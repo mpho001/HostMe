@@ -54,6 +54,9 @@ public class my_account_info extends AppCompatActivity {
 //                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 //                    startActivity(intent);
 //                }
+                if (Google.loggedIn == 1) {
+                    Google.loggedIn = 0;
+                }
                 Toast.makeText(getApplicationContext(),
                         "Signed Out!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
